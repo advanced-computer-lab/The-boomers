@@ -1,0 +1,4 @@
+{
+    "mongoURI":
+      "mongodb+srv://abdallah:abdallah@cluster0.4tbf1.mongodb.net/airlines?retryWrites=true&w=majority"
+  }
