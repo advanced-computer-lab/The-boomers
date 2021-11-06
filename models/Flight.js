@@ -3,35 +3,30 @@
 const mongoose = require('mongoose');
 
 const FlightSchema = new mongoose.Schema({
-  flight_number: {
+  From: {
     type: String,
     required: true
   },
-  departure_date: {
+  To: {
     type: String,
     required: true
   },
-  arrival_date: {
+  
+  Cabin: {
     type: String,
     required: true
   },
-  departure_airport: {
+
+  Flight_Date: {
     type: String,
     required: true
   },
-  arrival_airport: {
+
+  Seats_Available_on_Flight: {
     type: String,
     required: true
   },
-  economy_count: {
-    type: String,
-    required: true
-    
-  },
-  buisiness_count: {
-    type: String,
-    required: true
-  }
+ 
 });
 
 module.exports = Flight = mongoose.model('flight', FlightSchema);

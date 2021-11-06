@@ -3,25 +3,24 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
 
-class UpdateBookInfo extends Component {
+class UpdateflightInfo extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: '',
-      isbn: '',
-      author: '',
-      description: '',
-      published_date: '',
-      publisher: ''
+    this.state = {From:'',
+    To:'',
+    Cabin:'',
+    Flight_Date:'',
+    Seats_Available_on_Flight:''
+     
     };
   }
 
   componentDidMount() {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get('http://localhost:8082/api/books/'+this.props.match.params.id)
+      .get('http://localhost:8082/api/flights/'+this.props.match.params.id)
       .then(res => {
-        // this.setState({...this.state, book: res.data})
+        // this.setState({...this.state, flight: res.data})
         this.setState({
           title: res.data.title,
           isbn: res.data.isbn,
@@ -32,7 +31,7 @@ class UpdateBookInfo extends Component {
         })
       })
       .catch(err => {
-        console.log("Error from UpdateBookInfo");
+        console.log("Error from UpdateflightInfo");
       })
   };
 
@@ -44,40 +43,39 @@ class UpdateBookInfo extends Component {
     e.preventDefault();
 
     const data = {
-      title: this.state.title,
-      isbn: this.state.isbn,
-      author: this.state.author,
-      description: this.state.description,
-      published_date: this.state.published_date,
-      publisher: this.state.publisher
+      From: this.From,
+      To: this.To,
+      Cabin: this.Cabin,
+      Flight_Date: this.Flight_Date,
+      Seats_Available_on_Flight: this.Seats_Available_on_Flight
     };
 
     axios
-      .put('http://localhost:8082/api/books/'+this.props.match.params.id, data)
+      .put('http://localhost:8082/api/flights/'+this.props.match.params.id, data)
       .then(res => {
-        this.props.history.push('/show-book/'+this.props.match.params.id);
+        this.props.history.push('/show-flight/'+this.props.match.params.id);
       })
       .catch(err => {
-        console.log("Error in UpdateBookInfo!");
+        console.log("Error in UpdateflightInfo!");
       })
   };
 
 
   render() {
     return (
-      <div className="UpdateBookInfo">
+      <div className="UpdateflightInfo">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
               <Link to="/" className="btn btn-outline-warning float-left">
-                  Show BooK List
+                  Show flight List
               </Link>
             </div>
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Edit Book</h1>
+              <h1 className="display-4 text-center">Edit flight</h1>
               <p className="lead text-center">
-                  Update Book's Info
+                  Update flight's Info
               </p>
             </div>
           </div>
@@ -88,7 +86,7 @@ class UpdateBookInfo extends Component {
               <label htmlFor="title">Title</label>
               <input
                 type='text'
-                placeholder='Title of the Book'
+                placeholder='Title of the flight'
                 name='title'
                 className='form-control'
                 value={this.state.title}
@@ -125,7 +123,7 @@ class UpdateBookInfo extends Component {
             <label htmlFor="description">Description</label>
               <input
                 type='text'
-                placeholder='Describe this book'
+                placeholder='Describe this flight'
                 name='description'
                 className='form-control'
                 value={this.state.description}
@@ -148,7 +146,7 @@ class UpdateBookInfo extends Component {
             <label htmlFor="publisher">Publisher</label>
               <input
                 type='text'
-                placeholder='Publisher of this Book'
+                placeholder='Publisher of this flight'
                 name='publisher'
                 className='form-control'
                 value={this.state.publisher}
@@ -156,7 +154,7 @@ class UpdateBookInfo extends Component {
               />
             </div>
 
-            <button type="submit" className="btn btn-outline-info btn-lg btn-block">Update Book</button>
+            <button type="submit" className="btn btn-outline-info btn-lg btn-block">Update flight</button>
             </form>
           </div>
 
@@ -166,4 +164,4 @@ class UpdateBookInfo extends Component {
   }
 }
 
-export default UpdateBookInfo;
+export default UpdateflightInfo;

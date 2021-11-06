@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route  } from 'react-router-dom';
+import { BrowserRouter as Router, Route,  } from 'react-router-dom';
 import './App.css';
 
 import CreateFlight from './components/CreateFlight';
@@ -12,15 +12,14 @@ class App extends Component {
     return (
       
       <Router>
+        
        <div>
-       
         <Route exact path='/' component={ShowFlightList} ></Route>
         <Route path='/create-flight' component={CreateFlight}></Route>
         <Route path='/edit-flight/:id' component={UpdateFlightInfo}></Route>
-          <Route path='/show-flight/:id' component={ShowFlightDetails}></Route>
-
-        
+        <Route path='/show-flight/:id' component={ShowFlightDetails}></Route>
        </div>
+       
       </Router>
       
     );

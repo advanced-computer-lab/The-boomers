@@ -7,13 +7,13 @@ const FlightCard = (props) => {
 
     return(
         <div className="card-container">
-            <div className="desc">
+            <div style={{width:900}} className="desc">
                 
-                <h3>{flight.flight_number}</h3>
-                <p>{flight.arrival_date}</p>
-                <p>{flight.departure_date}</p>
-                <p>{flight.arrrival_airport}</p>
-                <p>{flight.departure_airport}</p>
+                <h3>{flight.From}</h3>
+                <p>{flight.To}</p>
+                <p>{flight.Flight_Date}</p>
+                <p>{flight.Cabin}</p>
+                <p>{flight.Seats_Available_on_Flight}</p>
             </div>
         </div>
     )

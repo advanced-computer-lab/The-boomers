@@ -2,15 +2,22 @@
 // app.js
 
 const express = require('express');
-const connectDB = require('./config/db');
+//const connectDB = require('./config/db');
 var cors = require('cors');
 
+require("dotenv").config({ path: "./config.env" });
+  const MongoURI = process.env.ATLAS_URI
+  
+  const mongoose = require('mongoose');
+  mongoose.connect(MongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(result =>console.log("MongoDB is now connected") )
+.catch(err => console.log(err));
 const flights = require('./routes/api/flights');
 
 const app = express();
 
 // Connect Database
-connectDB();
+//connectDB();
 
 app.use(cors({ origin: true, credentials: true }));
 

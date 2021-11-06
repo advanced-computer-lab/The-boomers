@@ -32,6 +32,7 @@ router.get('/:id', (req, res) => {
 // @description add/save flight
 // @access Public
 router.post('/', (req, res) => {
+  console.log(req.body)
   Flight.create(req.body)
     .then(flight => res.json({ msg: 'Flight added successfully' }))
     .catch(err => res.status(400).json({ error: 'Unable to add this flight' }));
