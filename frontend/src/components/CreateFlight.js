@@ -8,11 +8,14 @@ class CreateFlight extends Component {
   constructor() {
     super();
     this.state = {
-      From:'',
-      To:'',
-      Cabin:'',
-      Flight_Date:'',
-      Seats_Available_on_Flight:'',
+      flight_number: '',
+      departure_date:'',
+      arrival_date:'',
+      departure_airport:'',
+      arrival_airport:'',
+      economy_count:'',
+      buisiness_count:''
+
     };
   }
 
@@ -24,24 +27,29 @@ class CreateFlight extends Component {
     e.preventDefault();
 
     const data = {
-      From: this.From,
-      To: this.To,
-      Cabin: this.Cabin,
-      Flight_Date: this.Flight_Date,
-      Seats_Available_on_Flight: this.Seats_Available_on_Flight
+      flight_number: this.state.flight_number,
+      departure_date: this.state.departure_date,
+      arrival_date: this.state.arrival_date,
+      departure_airport: this.state.departure_airport,
+      arrival_airport: this.state.arrival_airport,
+      economy_count: this.state.economy_count,
+      buisiness_count: this.state.buisiness_count
     };
 
     axios
       .post('http://localhost:8082/api/flights', data)
       .then(res => {
         this.setState({
-          From: '',
-          To:'',
-          Cabin:'',
-          Flight_Date:'',
-          Seats_Available_on_Flight:''
+          flight_number: '',
+          departure_date:'',
+          arrival_date:'',
+          departure_airport:'',
+          arrival_airport:'',
+          economy_count:'',
+          buisiness_count:''
+
         })
-        this.props.history.push('/');
+        this.props.history.push('/AdminPortal');
       })
       .catch(err => {
         console.log("Error in CreateFlight!");
@@ -55,7 +63,7 @@ class CreateFlight extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
+              <Link to="/AdminPortal" className="btn btn-outline-warning float-left">
                   Show Flights List
               </Link>
             </div>
@@ -64,39 +72,27 @@ class CreateFlight extends Component {
               <p className="lead text-center">
                   Create new Flight
               </p>
-              <br />
 
               <form noValidate onSubmit={this.onSubmit}>
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='From'
-                    name='From'
+                    placeholder='Flight Number'
+                    name='flight_number'
                     className='form-control'
-                    value={this.From}
+                    value={this.state.flight_number}
                     onChange={this.onChange}
                   />
                 </div>
-                
+                <br />
 
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder=' To '
-                    name='To'
+                    placeholder='Time - Date of departure'
+                    name='departure_date'
                     className='form-control'
-                    value={this.To}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Cabin'
-                    name='Cabin'
-                    className='form-control'
-                    value={this.Cabin}
+                    value={this.state.departure_date}
                     onChange={this.onChange}
                   />
                 </div>
@@ -104,10 +100,10 @@ class CreateFlight extends Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Flight_Date'
-                    name='Flight_Date'
+                    placeholder='Time - Date of arrival'
+                    name='arrival_date'
                     className='form-control'
-                    value={this.Flight_Date}
+                    value={this.state.arrival_date}
                     onChange={this.onChange}
                   />
                 </div>
@@ -115,10 +111,42 @@ class CreateFlight extends Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Seats_Available_on_Flight'
-                    name='Seats_Available_on_Flight'
+                    placeholder='depart from airport...'
+                    name='departure_airport'
                     className='form-control'
-                    value={this.Seats_Available_on_Flight}
+                    value={this.state.departure_airport}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='arrive at airport...'
+                    name='arrival_airport'
+                    className='form-control'
+                    value={this.state.arrival_airport}
+                    onChange={this.onChange}
+                  />
+                </div>
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Number of Economy seats'
+                    name='economy_count'
+                    className='form-control'
+                    value={this.state.economy_count}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Number of Bbuisiness seats'
+                    name='buisiness_count'
+                    className='form-control'
+                    value={this.state.buisiness_count}
                     onChange={this.onChange}
                   />
                 </div>

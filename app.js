@@ -19,6 +19,7 @@ const app = express();
 // Connect Database
 //connectDB();
 
+
 app.use(cors({ origin: true, credentials: true }));
 
 app.use(express.json({ extended: false }));

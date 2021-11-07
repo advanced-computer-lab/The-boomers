@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import FlightCard from './FlightCard';
 
+
 class ShowFlightList extends Component {
   constructor(props) {
     super(props);
@@ -45,11 +46,11 @@ class ShowFlightList extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">Flights List</h2>
+              <h2 className="display-4 text-center">Admin Portal </h2>
             </div>
-
+            <h2 className="display-4 text-center">flight list </h2>
             <div className="col-md-11">
-              <Link to="/create-flight" className="btn btn-outline-warning float-right">
+              <Link to="/AdminPortal/create-flight" className="btn btn-outline-warning float-right">
                 + Add New Flight
               </Link>
               <br />

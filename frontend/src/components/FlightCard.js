@@ -7,13 +7,15 @@ const FlightCard = (props) => {
 
     return(
         <div className="card-container">
-            <div style={{width:900}} className="desc">
+            <div className="desc">
                 
-                <h3>{flight.From}</h3>
-                <p>{flight.To}</p>
-                <p>{flight.Flight_Date}</p>
-                <p>{flight.Cabin}</p>
-                <p>{flight.Seats_Available_on_Flight}</p>
+                <p>Flight Number : {flight.flight_number}</p>
+                <p>Arrival Date : {flight.arrival_date}</p>
+                <p>Departure Dat: {flight.departure_date}</p>
+                <p>Arrival Airport :  {flight.arrival_airport}</p>
+                <p>Departure Airport : {flight.departure_airport}</p>
+                <Link to={`/AdminPortal/edit-flight/${flight._id}`}>Update</Link>
+            <p>    <Link to={`/AdminPortal/delete-flight/${flight._id}`}>delete</Link> </p>
             </div>
         </div>
     )

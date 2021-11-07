@@ -6,18 +6,19 @@ import CreateFlight from './components/CreateFlight';
 import ShowFlightList from './components/ShowFlightList';
 import ShowFlightDetails from './components/ShowFlightDetails';
 import UpdateFlightInfo from './components/UpdateFlightInfo';
-
+import home  from './components/home';
 class App extends Component {
   render() {
     return (
       
       <Router>
-        
+         
        <div>
-        <Route exact path='/' component={ShowFlightList} ></Route>
-        <Route path='/create-flight' component={CreateFlight}></Route>
-        <Route path='/edit-flight/:id' component={UpdateFlightInfo}></Route>
-        <Route path='/show-flight/:id' component={ShowFlightDetails}></Route>
+       <Route exact path='/' component={home} ></Route>
+        <Route exact path='/AdminPortal' component={ShowFlightList} ></Route>
+        <Route path='/AdminPortal/create-flight' component={CreateFlight}></Route>
+        <Route path='/AdminPortal/edit-flight/:id' component={UpdateFlightInfo}></Route>
+        <Route path='/AdminPortal/delete-flight/:id' component={ShowFlightDetails}></Route>
        </div>
        
       </Router>
