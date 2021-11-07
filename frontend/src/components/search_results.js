@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import FlightCard from './FlightCard';
 
 
-class ShowFlightList extends Component {
+class search_results extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,11 +15,12 @@ class ShowFlightList extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:8082/api/flights')
+      .post('http://localhost:8082/api/flights/search', this.props.location.flightData)
       .then(res => {
         this.setState({
           flights: res.data
         })
+      
       })
       .catch(err =>{
         console.log('Error from ShowFlightList');
@@ -28,18 +29,17 @@ class ShowFlightList extends Component {
 
 
   render() {
-    const flights = this.state.flights;
+    const flights = this.state.flight;
     console.log("PrintFlight: " + flights);
     let flightList;
 
-    if(!flights) {
-      flightList = "there is no flight record!";
+   if(!flights) {
+     flightList = "there is no flight record!";
     } else {
-      flightList = flights.map((flight, k) =>
-        <FlightCard flight={flight} key={k} />
-      );
+      flightList = flights.map((flight, l) =>
+        <FlightCard flight={flight} key={l} />
+     );
     }
-
     return (
       <div className="ShowFlightList">
         <div className="container">
@@ -48,18 +48,12 @@ class ShowFlightList extends Component {
               <br />
               <h2 className="display-4 text-center">Admin Portal </h2>
             </div>
-            <h2 className="display-4 text-center">flight list </h2>
+            <h2 className="display-4 text-center">Search results </h2>
             <div className="col-md-11">
-              <Link to="/AdminPortal/create-flight" className="btn btn-outline-warning float-right">
-                + Add New Flight
-              </Link>
-              <Link to="/AdminPortal/search" className="btn btn-outline-warning float-right">
-               Search..
+              <Link to="/AdminPortal" className="btn btn-outline-warning float-right">
+              Back to portal
               </Link>
               <br />
-             
-              
-             
               <br />
               <hr />
             </div>
@@ -75,4 +69,4 @@ class ShowFlightList extends Component {
   }
 }
 
-export default ShowFlightList;
+export default search_results;

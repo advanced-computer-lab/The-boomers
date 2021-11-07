@@ -31,6 +31,18 @@ const FlightSchema = new mongoose.Schema({
   buisiness_count: {
     type: String,
     required: true
+  },
+  airport_terminal:{
+    type: String,
+    required: true
+  },
+  departure_time:{
+    type: String,
+    required: true
+  },
+  arrival_time:{
+    type: String,
+    required: true
   }
 });
 

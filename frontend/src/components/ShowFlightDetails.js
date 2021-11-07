@@ -30,7 +30,7 @@ class showflightDetails extends Component {
     axios
       .delete('http://localhost:8082/api/flights/'+id)
       .then(res => {
-        this.props.history.push("/");
+        this.props.history.push("/AdminPortal");
       })
       .catch(err => {
         console.log("Error form ShowflightDetails_deleteClick");
