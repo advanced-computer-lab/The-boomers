@@ -61,16 +61,16 @@ router.delete('/:id', (req, res) => {
 
 router.post('/search', (req, res) => {
   console.log(req.body)
-  Flight.find({
-    flight_number: req.body.flight_number,
-    departure_time: req.body.departure_time,
-    arrival_time: req.body.arrival_time,
-    departure_date: req.body.departure_date,
-    arrival_date: req.body.arrival_date,
-    airport_terminal: req.body.airport_terminal
-  })
-    .then(flight => res.json({ msg: 'Flight(s) found successfully' }))
-    .catch(err => res.status(400).json({ error: 'Unable to add this flight' }));
+  Flight.find(   { $or:[
+    { flight_number: req.body.flight_number},
+   {departure_time: req.body.departure_time},
+    {arrival_time: req.body.arrival_time},
+    {departure_date: req.body.departure_date},
+    {arrival_date: req.body.arrival_date},
+    {airport_terminal: req.body.airport_terminal}]}
+  ).then(result => res.send(result))
+  .catch(err => console.error(err));
+
 });
 
 module.exports = router;

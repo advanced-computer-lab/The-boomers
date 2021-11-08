@@ -28,9 +28,10 @@ class search extends Component {
     const data = {
       flight_number: this.state.flight_number,
       departure_date: this.state.departure_date,
+      departure_time: this.state.departure_time,
       arrival_date: this.state.arrival_date,
-      arrival_time: this.arrival_time,
-      airport_terminal: this.airport_terminal,
+      arrival_time: this.state.arrival_time,
+      airport_terminal: this.state.airport_terminal,
     };
 
     
@@ -53,9 +54,9 @@ class search extends Component {
               </Link>
             </div>
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Add Flight</h1>
+              <h1 className="display-4 text-center">Find Flight</h1>
               <p className="lead text-center">
-                  Create new Flight
+                 Search
               </p>
 
               <form noValidate onSubmit={this.onSubmit}>
