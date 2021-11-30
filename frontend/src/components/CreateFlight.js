@@ -17,9 +17,11 @@ class CreateFlight extends Component {
       arrival_airport:'',
       airport_terminal:'',
       economy_count:'',
-      buisiness_count:''
-
-
+      buisiness_count:'',
+      EcoavailableChildren:'',
+      EcoavailableAdults:'',
+      BuiavailableChildren:'',
+      BuiavailableAdults:'',
     };
   }
 
@@ -40,7 +42,16 @@ class CreateFlight extends Component {
       buisiness_count: this.state.buisiness_count,
       departure_time: this.state.departure_time,
       arrival_time: this.state.arrival_time,
-      airport_terminal: this.state.airport_terminal
+      airport_terminal: this.state.airport_terminal,
+      BuiavailableAdults: this.state.BuiavailableAdults,
+      EcoavailableChildren: this.state.EcoavailableChildren,
+      BuiavailableChildren: this.state.BuiavailableChildren,
+      EcoavailableAdults: this.state.EcoavailableAdults,
+     
+      
+     
+
+
 
     };
 
@@ -57,7 +68,12 @@ class CreateFlight extends Component {
           buisiness_count:'',
           airport_terminal:'',
           arrival_time:'',
-          departure_time:''
+          departure_time:'',
+          BuiavailableAdults:'',
+          EcoavailableChildren:'',
+          BuiavailableChildren:'',
+          EcoavailableAdults:''
+
 
         })
         this.props.history.push('/AdminPortal');
@@ -99,7 +115,7 @@ class CreateFlight extends Component {
 
                 <div className='form-group'>
                   <input
-                    type='text'
+                    type='date'
                     placeholder='Date of departure'
                     name='departure_date'
                     className='form-control'
@@ -110,7 +126,7 @@ class CreateFlight extends Component {
 
                 <div className='form-group'>
                   <input
-                    type='text'
+                    type='time'
                     placeholder='Time of departure'
                     name='departure_time'
                     className='form-control'
@@ -121,7 +137,7 @@ class CreateFlight extends Component {
 
                 <div className='form-group'>
                   <input
-                    type='text'
+                    type='date'
                     placeholder='Date of arrival'
                     name='arrival_date'
                     className='form-control'
@@ -132,7 +148,7 @@ class CreateFlight extends Component {
 
                 <div className='form-group'>
                   <input
-                    type='text'
+                    type='time'
                     placeholder='Time of arrival'
                     name='arrival_time'
                     className='form-control'
@@ -196,6 +212,52 @@ class CreateFlight extends Component {
                     onChange={this.onChange}
                   />
                 </div>
+
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Economy available Children Seats'
+                    name='EcoavailableChildren'
+                    className='form-control'
+                    value={this.state.EcoavailableChildren}
+                    onChange={this.onChange}
+                  />
+                </div>
+                
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Buisness available Adults seats'
+                    name='BuiavailableAdults'
+                    className='form-control'
+                    value={this.state.BuiavailableAdults}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Economy available Adults seats'
+                    name='EcoavailableAdults'
+                    className='form-control'
+                    value={this.state.EcoavailableAdults}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Business available Children seats'
+                    name='BuiavailableChildren'
+                    className='form-control'
+                    value={this.state.BuiavailableChildren}
+                    onChange={this.onChange}
+                  />
+                </div>
+
 
                 <input
                     type="submit"

@@ -58,6 +58,26 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(404).json({ error: 'No such a flight' }));
 });
 
+router.post('/usersearch', (req, res) => {
+  console.log(req.body)
+  Flight.find(   { $or:[
+
+    {departure_date: req.body.departure_date},
+    {arrival_date : req.body.arrival_date},
+  
+    {EcoavailableChildren: req.body.EcoavailableChildren},
+   {EcoavailableAdults: req.body.EcoavailableAdults},
+    {BuiavailableChildren: req.body.BuiavailableChildren},
+    {BuiavailableAdults: req.body.BuiavailableAdults },
+    {departure_airport: req.body.departure_airport},
+    {arrival_airport: req.body.arrival_airport}]
+    
+    }
+  ).then(result => res.send(result))
+  .catch(err => console.error(err));
+
+});
+
 
 router.post('/search', (req, res) => {
   console.log(req.body)

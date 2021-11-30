@@ -43,7 +43,25 @@ const FlightSchema = new mongoose.Schema({
   arrival_time:{
     type: String,
     required: true
-  }
+  },
+  EcoavailableChildren:{
+    type: String,
+    required: true
+  },
+  BuiavailableAdults:{
+    type: String,
+    required: true
+  },
+  EcoavailableAdults:{
+    type: String,
+    required: true
+  },
+
+  BuiavailableChildren:{
+    type: String,
+    required: true
+  },
+
 });
 
 module.exports = Flight = mongoose.model('flight', FlightSchema);

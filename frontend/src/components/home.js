@@ -6,7 +6,11 @@ const home = (props) => {
    
 
     return(
-        <p>    <Link to="/AdminPortal" className="btn btn-outline-warning float-left">Portal</Link> </p>
+        <div>     <Link to="/AdminPortal" className="btn btn-outline-warning float-left">Portal</Link>  
+          <Link to="/UserPortal" className="btn btn-outline-warning float-left">User</Link>  </div>
+       
+
+       
       
     )
 };
