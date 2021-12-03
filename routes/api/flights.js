@@ -83,7 +83,8 @@ router.post('/search', (req, res) => {
   console.log(req.body)
   Flight.find(   { $or:[
     { flight_number: req.body.flight_number},
-   {departure_time: req.body.departure_time},
+    { _id: req.body._id},
+    {departure_time: req.body.departure_time},
     {arrival_time: req.body.arrival_time},
     {departure_date: req.body.departure_date},
     {arrival_date: req.body.arrival_date},

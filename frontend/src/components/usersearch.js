@@ -157,8 +157,6 @@ class usersearch extends Component {
                     onChange={this.onChange}
                   />
                 </div>
-
-
                 
                 <input
                     type="submit"

@@ -12,6 +12,7 @@ class showflight extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.location.flightData);
     console.log("Print id: " + this.props.match.params.id);
     axios
       .get('http://localhost:8082/api/flights/'+this.props.match.params.id)
@@ -54,22 +55,22 @@ class showflight extends Component {
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>departure_date</td>
+            <td>Depature Date</td>
             <td>{ flight.departure_date}</td>
           </tr>
           <tr>
             <th scope="row">2</th>
-            <td>departure_airport</td>
+            <td>Departure Airport</td>
             <td>{ flight.departure_airport }</td>
           </tr>
           <tr>
             <th scope="row">3</th>
-            <td>arrival_date</td>
+            <td>Arrival Date</td>
             <td>{ flight.arrival_date }</td>
           </tr>
           <tr>
             <th scope="row">4</th>
-            <td>arrival_airport</td>
+            <td>Arrival airport</td>
             <td>{ flight.arrival_airport}</td>
           </tr>
           
@@ -103,12 +104,15 @@ class showflight extends Component {
           <div className="row">
            
 
-            <div className="col-md-6">
-              <Link to={`/edit-flight/${flight._id}`} className="btn btn-outline-info btn-lg btn-block">
-                    Edit flight
-              </Link>
-              <br />
-            </div>
+          <div onClick={()=>this.props.history.push({
+          pathname: this.props.location.return ? "/UserPortal/confirm" : "/UserPortal/userReturnsearch",
+          flightData: this.props.location.flightData,
+          flightID: flight._id,
+          depID : this.props.location.depID,
+          })} style={{width: 200, height: 200, cursor: 'pointer', backgroundColor:'#000'}}>
+            <p> Select </p>
+            <br />
+          </div>
 
           </div>
             {/* <br />

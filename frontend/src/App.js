@@ -13,17 +13,21 @@ import search_results  from './components/search_results';
 import usersearch from './components/usersearch';
 import UserPortal from './components/UserPortal';
 import usersearch_results from './components/usersearch_results'
+import Navbar from "./components/Navbar";
+import userReturnsearch from './components/userReturnsearch';
+import confirm from './components/confirm';
+
 class App extends Component {
   render() {
     return (
-      
+
       <Router>
-         
+         <Navbar />
        <div>
-       <Route exact path='/' component={home} ></Route>
-       <Route exact path='/UserPortal' component={UserPortal} ></Route>
-       <Route exact path='/AdminPortal' component={ShowFlightList} ></Route>
-       <Route path='/UserPortal/usersearch_results' component= {usersearch_results}></Route>
+        <Route exact path='/' component={home} ></Route>
+        <Route exact path='/UserPortal' component={UserPortal} ></Route>
+        <Route exact path='/AdminPortal' component={ShowFlightList} ></Route>
+        <Route path='/UserPortal/usersearch_results' component= {usersearch_results}></Route>
         <Route path='/AdminPortal/create-flight' component={CreateFlight}></Route>
         <Route path='/AdminPortal/edit-flight/:id' component={UpdateFlightInfo}></Route>
         <Route path='/AdminPortal/delete-flight/:id' component={ShowFlightDetails}></Route>
@@ -31,6 +35,8 @@ class App extends Component {
         <Route path='/AdminPortal/search' component={search}></Route>
         <Route path='/AdminPortal/search_results' component= {search_results}></Route>
         <Route path='/UserPortal/UserSearch' component= {usersearch}></Route>
+        <Route path='/UserPortal/userReturnsearch' component= {userReturnsearch}></Route>
+        <Route path='/UserPortal/confirm' component= {confirm}></Route>
        </div>
        
       </Router>

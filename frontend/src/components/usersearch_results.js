@@ -3,6 +3,7 @@ import '../App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import UserFlightCard from './UserFlightCard';
+import { FaBox } from 'react-icons/fa';
 
 
 class usersearch_results extends Component {
@@ -37,7 +38,10 @@ class usersearch_results extends Component {
       flightList = "there is no flight record!";
     } else {
       flightList = flights.map((flight, k) =>
-        <UserFlightCard flight={flight} key={k} />
+        <UserFlightCard flight={flight} key={k} onClick = {()=>this.props.history.push({
+          pathname:`/UserPortal/showflight/${flight._id}`,
+          return : false,
+          flightData: this.props.location.flightData})}/>
       );
     }
 

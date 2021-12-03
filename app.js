@@ -13,7 +13,7 @@ require("dotenv").config({ path: "./config.env" });
 .then(result =>console.log("MongoDB is now connected") )
 .catch(err => console.log(err));
 const flights = require('./routes/api/flights');
-
+const booking = require('./routes/api/booking');
 const app = express();
 
 // Connect Database
@@ -27,7 +27,7 @@ app.use(express.json({ extended: false }));
 app.get('/', (req, res) => res.send('Hello world!'));
 
 app.use('/api/flights', flights);
-
+app.use('/api/booking', booking);
 
 const port = process.env.PORT || 8082;
 

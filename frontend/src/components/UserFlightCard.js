@@ -18,7 +18,7 @@ const UserFlightCard = (props) => {
                 <p>Airport Terminal : {flight.airport_terminal}</p>
                 <p>Departure Airport : {flight.departure_airport}</p>
               
-            <p>    <Link to={`/UserPortal/showflight/${flight._id}`}>Show Details</Link> </p>
+            <p onClick = {props.onClick}>  Show Details </p>
             </div>
         </div>
     )
