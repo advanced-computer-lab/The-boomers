@@ -10,7 +10,9 @@ class confirm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      flights: []
+      flights: [],
+      depID: '',
+      returnID: ''
     };
   }
 
@@ -32,7 +34,9 @@ class confirm extends Component {
         array.push(res.data[0])
         console.log(array)
         this.setState({
-            flights: array
+            flights: array,
+            depID: this.props.location.depID,
+            returnID: this.props.location.flightID
           })
       })
       .catch(err =>{
@@ -43,7 +47,9 @@ class confirm extends Component {
   };
 
 
+
   render() {
+    
     const flights = this.state.flights;
     console.log("PrintFlight: " + flights);
     let flightList;
@@ -54,6 +60,24 @@ class confirm extends Component {
       flightList = flights.map((flight, k) =>
         <UserFlightCard flight={flight} key={k} />
       );
+    }
+
+    const handleSubmit = () => {
+      console.log('reached')
+      console.log( this.props.location.depID)
+      axios
+      .post('http://localhost:8082/api/booking/createBooking', {
+        departureFlightID: this.state.flights[0]._id,
+        returnFlightID: this.state.flights[1]._id,
+        PassCount: 1,
+        userID: 1
+      })
+      .then(res => {
+        this.props.history.push('/omak')
+      })
+      .catch(err =>{
+        console.log('Error from confirm');
+      })
     }
 
     return (
@@ -80,6 +104,11 @@ class confirm extends Component {
 
           <div className="list">
                 {flightList}
+          </div>
+          <div style={{height: 100, width: '100%', backgroundColor:'#000'}}>
+            <div style={{height: 100, width: 120, backgroundColor:'#fff', cursor: 'pointer'}} onClick={() => handleSubmit()}>
+                <label style={{textAlign: 'center', color:'#000'}}>Sumbit</label>
+              </div>
           </div>
         </div>
       </div>
