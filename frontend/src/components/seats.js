@@ -35,7 +35,6 @@ class seats extends Component {
   };
 
 
-
   render() {
     const renderDepSeats = () => {
         let seats = [];
@@ -109,7 +108,9 @@ class seats extends Component {
             </div>   
 
             <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%', height: 300}}>
-                <div style={{width: 120, height: 60, cursor: 'pointer', backgroundColor: '#f00'}} />
+              <div style={{width: 120, height: 60, cursor: 'pointer', backgroundColor: '#C71585', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row'}} >
+                <label style={{color: '#fff'}}>Reserve</label>
+              </div>
             </div>
 
         </div>
