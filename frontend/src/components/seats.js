@@ -16,6 +16,8 @@ class seats extends Component {
       returnFlight: {},
       seatsBookedDep: [],
       seatsBookedReturn: [],
+      currentSelectionDepart: [],
+      currentSelectReturn: [],
     };
   }
 
@@ -24,11 +26,11 @@ class seats extends Component {
     this.setState({booking: res})
     const res2 = await axios.get('http://localhost:8082/api/flights/'+this.props.location.bookingData.depID)
     this.setState({depFlight: res2.data})
-    //this.setState({seatsBookedDep: res2.data[0].SeatsBooked})
+    this.setState({seatsBookedDep: res2.data.SeatsBooked === null ? [] : res2.data.SeatsBooked})
     const res3 = await axios.get('http://localhost:8082/api/flights/'+this.props.location.bookingData.returnID)
     this.setState({returnFlight: res3.data})
     this.setState({loading: false})
-    //this.setState({seatsBookedReturn: res2.data[0].SeatsBooked})
+    this.setState({seatsBookedDep: res3.data.SeatsBooked === null ? [] : res3.data.SeatsBooked})
   };
 
 
@@ -38,7 +40,7 @@ class seats extends Component {
         let seats = [];
         for (let i = 0; i < this.state.depFlight.SeatsAvailable; i++) {
           seats.push(
-                <div style={{marginLeft: 20, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedDep.includes(i) ? '#f00' : '#0f0'}}/>
+                <div style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedDep.includes(i) ? '#f00' : '#0f0'}}/>
           )
         }
         return seats;
@@ -50,7 +52,7 @@ class seats extends Component {
         
         for (let i = 0; i < this.state.returnFlight.SeatsAvailable; i++) {
           seats.push(
-                <div style={{marginLeft:20, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedReturn.includes(i) ? '#f00' : '#0f0'}}/>
+                <div style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedReturn.includes(i) ? '#f00' : '#0f0'}}/>
           )
         }
         return seats;
@@ -63,44 +65,28 @@ class seats extends Component {
     }
     else{
       return (
-        <div className="ShowFlightList">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <br />
-                <h2 className="display-4 text-center">user Portal </h2>
-              </div>
-              <h2 className="display-4 text-center">Seats Selection</h2>
-              <div className="col-md-11">
-               
-    
-                <br />
-               
-                
-               
-                <br />
-                <hr />
-              </div>
-  
-            </div>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+
             <div style={{width: window.innerWidth, height: 200, backgroundColor: '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                <label style={{fontSize: 30}}>Depart Flight</label>
+                <label style={{fontSize: 30, color: '#fff'}}>Depart Flight</label>
             </div>
-            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%', height: 557}}>
+
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: window.innerWidth, height: 500}}>
               {renderDepSeats()}
             </div>
-                  <div style={{width: window.innerWidth, height: 200, backgroundColor: '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                <label style={{fontSize: 30}}>Return Flight</label>
+
+            <div style={{width: window.innerWidth, height: 200, backgroundColor: '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                <label style={{fontSize: 30, color: '#fff'}}>Return Flight</label>
             </div>
-            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%', height: 557}}>
-             {renderReturnSeats()}
+
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: window.innerWidth, height: 500}}>
+                {renderReturnSeats()}
             </div>   
+
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: window.innerWidth, height: 300}}>
+                <div style={{width: 120, height: 60, cursor: 'pointer', backgroundColor: '#f00'}} />
             </div>
-            <div style={{height: 100, width: '100%', backgroundColor:'#000'}}>
-              <div style={{height: 100, width: 120, backgroundColor:'#fff', cursor: 'pointer'}} onClick={() => handleSubmit()}>
-                  <label style={{textAlign: 'center', color:'#000'}}>Sumbit</label>
-                </div>
-            </div>
+
         </div>
       );
     }
