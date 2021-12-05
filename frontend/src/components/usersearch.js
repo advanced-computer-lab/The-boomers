@@ -36,15 +36,11 @@ class usersearch extends Component {
       cabin: this.state.cabin
     };
 
-    
         this.props.history.push({
             pathname: '/UserPortal/usersearch_results',
             flightData: data,
-            passengerCount: this.state.childrenCount + this.state.adultsCount
+            passengerCount: parseInt((this.state.adultsCount === '' ? 0 : this.state.adultsCount), 10)+parseInt((this.state.childrenCount === '' ? 0 : this.state.childrenCount),10)
           })
-
-       
-      
   };
 
   render() {

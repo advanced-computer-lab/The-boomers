@@ -131,6 +131,7 @@ class showflight extends Component {
           flightData: this.props.location.flightData,
           flightID: flight._id,
           depID : this.props.location.depID,
+          passengerCount : this.props.location.passengerCount
           })} style={{width: 200, height: 200, cursor: 'pointer', backgroundColor:'#000'}}>
             <p> Select </p>
             <br />

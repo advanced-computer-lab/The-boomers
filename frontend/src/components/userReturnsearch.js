@@ -52,7 +52,9 @@ class userReturnsearch extends Component {
           pathname:`/UserPortal/showflight/${flight._id}`,
           return : true,
           depID : this.state.depID,
-          flightData: this.props.location.flightData})}/>
+          flightData: this.props.location.flightData,
+          passengerCount : this.props.location.passengerCount
+        })}/>
       );
     }
 

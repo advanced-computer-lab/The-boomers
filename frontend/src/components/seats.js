@@ -31,6 +31,7 @@ class seats extends Component {
     this.setState({returnFlight: res3.data})
     this.setState({loading: false})
     this.setState({seatsBookedDep: res3.data.SeatsBooked === null ? [] : res3.data.SeatsBooked})
+    console.log(this.props.location.bookingData.passCount)
   };
 
 
@@ -40,7 +41,7 @@ class seats extends Component {
         let seats = [];
         for (let i = 0; i < this.state.depFlight.SeatsAvailable; i++) {
           seats.push(
-                <div style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedDep.includes(i) ? '#f00' : '#0f0'}}/>
+                <div onClick={() => handleSelectDepart(i)} style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedDep.includes(i) || this.state.currentSelectionDepart.includes(i) ? '#f00' : '#0f0'}}/>
           )
         }
         return seats;
@@ -52,13 +53,37 @@ class seats extends Component {
         
         for (let i = 0; i < this.state.returnFlight.SeatsAvailable; i++) {
           seats.push(
-                <div style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedReturn.includes(i) ? '#f00' : '#0f0'}}/>
+                <div onClick={() => handleSelectReturn(i)} style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedReturn.includes(i) || this.state.currentSelectReturn.includes(i) ? '#f00' : '#0f0'}}/>
           )
         }
         return seats;
     }
     const handleSubmit = () => {
 
+    }
+    const handleSelectDepart = (i) => {
+        if(this.state.currentSelectionDepart.includes(i)){
+            const arr = this.state.currentSelectionDepart.slice()
+            arr.splice(this.state.currentSelectionDepart.indexOf(i), 1)
+            this.setState({currentSelectionDepart: arr})
+        }
+        else if(this.state.currentSelectionDepart.length < this.props.location.bookingData.passCount){
+            const arr = this.state.currentSelectionDepart.slice();
+            arr.push(i);
+            this.setState({currentSelectionDepart: arr})  
+        }
+    }
+    const handleSelectReturn = (i) => {
+        if(this.state.currentSelectReturn.includes(i)){
+            const arr = this.state.currentSelectReturn.slice()
+            arr.splice(this.state.currentSelectReturn.indexOf(i), 1)
+            this.setState({currentSelectReturn: arr})
+        }
+        else if(this.state.currentSelectReturn.length < this.props.location.bookingData.passCount){
+            const arr = this.state.currentSelectReturn.slice();
+            arr.push(i);
+            this.setState({currentSelectReturn: arr})  
+        }
     }
     if(this.state.loading){
       return null
@@ -67,23 +92,23 @@ class seats extends Component {
       return (
         <div style={{display: 'flex', flexDirection: 'column'}}>
 
-            <div style={{width: window.innerWidth, height: 200, backgroundColor: '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <div style={{width: '100%', height: 200, backgroundColor: '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                 <label style={{fontSize: 30, color: '#fff'}}>Depart Flight</label>
             </div>
 
-            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: window.innerWidth, height: 500}}>
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%', height: 500}}>
               {renderDepSeats()}
             </div>
 
-            <div style={{width: window.innerWidth, height: 200, backgroundColor: '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <div style={{width: '100%', height: 200, backgroundColor: '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                 <label style={{fontSize: 30, color: '#fff'}}>Return Flight</label>
             </div>
 
-            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: window.innerWidth, height: 500}}>
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%', height: 500}}>
                 {renderReturnSeats()}
             </div>   
 
-            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: window.innerWidth, height: 300}}>
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%', height: 300}}>
                 <div style={{width: 120, height: 60, cursor: 'pointer', backgroundColor: '#f00'}} />
             </div>
 

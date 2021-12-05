@@ -41,7 +41,9 @@ class usersearch_results extends Component {
         <UserFlightCard flight={flight} key={k} onClick = {()=>this.props.history.push({
           pathname:`/UserPortal/showflight/${flight._id}`,
           return : false,
-          flightData: this.props.location.flightData})}/>
+          flightData: this.props.location.flightData,
+          passengerCount : this.props.location.passengerCount
+        })}/>
       );
     }
 

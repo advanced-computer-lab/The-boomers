@@ -64,12 +64,12 @@ class confirm extends Component {
 
     const handleSubmit = () => {
       console.log('reached')
-      console.log( this.props.location.depID)
+      console.log(this.props.location.passengerCount)
       axios
       .post('http://localhost:8082/api/booking/createBooking', {
         departureFlightID: this.state.flights[0]._id,
         returnFlightID: this.state.flights[1]._id,
-        PassCount: 1,
+        PassCount: this.props.location.passengerCount,
         userID: 1
       })
       .then(res => {
@@ -78,7 +78,7 @@ class confirm extends Component {
           bookingData: {
              depID: this.state.flights[0]._id , 
               returnID: this.state.flights[1]._id,
-             passCount: 1,
+             passCount: this.props.location.passengerCount,
              userID: 1,
              bookingID: res.data._id
           }
