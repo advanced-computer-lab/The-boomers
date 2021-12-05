@@ -38,7 +38,7 @@ class seats extends Component {
         let seats = [];
         for (let i = 0; i < this.state.depFlight.SeatsAvailable; i++) {
           seats.push(
-                <div style={{width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedDep.includes(i) ? '#f00' : '#0f0'}}/>
+                <div style={{marginLeft: 20, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedDep.includes(i) ? '#f00' : '#0f0'}}/>
           )
         }
         return seats;
@@ -50,7 +50,7 @@ class seats extends Component {
         
         for (let i = 0; i < this.state.returnFlight.SeatsAvailable; i++) {
           seats.push(
-                <div style={{width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedReturn.includes(i) ? '#f00' : '#0f0'}}/>
+                <div style={{marginLeft:20, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedReturn.includes(i) ? '#f00' : '#0f0'}}/>
           )
         }
         return seats;
@@ -83,17 +83,24 @@ class seats extends Component {
               </div>
   
             </div>
-  
-            <div className="list">
-                  {renderDepSeats()}
-                  {renderReturnSeats()}
+            <div style={{width: window.innerWidth, height: 200, backgroundColor: '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                <label style={{fontSize: 30}}>Depart Flight</label>
+            </div>
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%', height: 557}}>
+              {renderDepSeats()}
+            </div>
+                  <div style={{width: window.innerWidth, height: 200, backgroundColor: '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                <label style={{fontSize: 30}}>Return Flight</label>
+            </div>
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%', height: 557}}>
+             {renderReturnSeats()}
+            </div>   
             </div>
             <div style={{height: 100, width: '100%', backgroundColor:'#000'}}>
               <div style={{height: 100, width: 120, backgroundColor:'#fff', cursor: 'pointer'}} onClick={() => handleSubmit()}>
                   <label style={{textAlign: 'center', color:'#000'}}>Sumbit</label>
                 </div>
             </div>
-          </div>
         </div>
       );
     }
