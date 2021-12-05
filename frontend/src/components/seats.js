@@ -23,10 +23,10 @@ class seats extends Component {
     this.setState({booking: res})
     const res2 = await axios.get('http://localhost:8082/api/flights/'+this.props.location.bookingData.depID)
     this.setState({depFlight: res2.data[0]})
-    this.setState({seatsBookedDep: res2.data[0].SeatsBooked})
+    //this.setState({seatsBookedDep: res2.data[0].SeatsBooked})
     const res3 = await axios.get('http://localhost:8082/api/flights/'+this.props.location.bookingData.returnID)
     this.setState({returnFlight: res2.data[0]})
-    this.setState({seatsBookedReturn: res2.data[0].SeatsBooked})
+    //this.setState({seatsBookedReturn: res2.data[0].SeatsBooked})
   };
 
 
@@ -34,7 +34,8 @@ class seats extends Component {
   render() {
     const renderDepSeats = () => {
         let seats = [];
-        for (let i = 0; i <= this.state.depFlight.Seats_Available_on_Flight; i++) {
+        
+        for (let i = 0; i < this.state.depFlight.SeatsAvailable; i++) {
           seats.push(
                 <div style={{width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedDep.includes(i) ? '#f00' : '#0f0'}}/>
           )
@@ -44,7 +45,8 @@ class seats extends Component {
     
     const renderReturnSeats = () => {
         let seats = [];
-        for (let i = 0; i <= this.state.returnFlight.Seats_Available_on_Flight; i++) {
+        
+        for (let i = 0; i < this.state.returnFlight.SeatsAvailable; i++) {
           seats.push(
                 <div style={{width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedReturn.includes(i) ? '#f00' : '#0f0'}}/>
           )
@@ -63,7 +65,7 @@ class seats extends Component {
               <br />
               <h2 className="display-4 text-center">user Portal </h2>
             </div>
-            <h2 className="display-4 text-center">Confirm booking</h2>
+            <h2 className="display-4 text-center">Seats Selection</h2>
             <div className="col-md-11">
              
   

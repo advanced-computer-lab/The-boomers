@@ -17,7 +17,7 @@ class usersearch_results extends Component {
   componentDidMount() {
    console.log(this.props.location.flightData)
     axios
-      .post('http://localhost:8082/api/flights/usersearch', this.props.location.flightData)
+      .post('http://localhost:8082/api/flights/search', this.props.location.flightData)
       .then(res => {
         this.setState({
           flights: res.data

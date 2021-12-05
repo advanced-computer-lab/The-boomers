@@ -16,12 +16,11 @@ class CreateFlight extends Component {
       departure_airport:'',
       arrival_airport:'',
       airport_terminal:'',
-      economy_count:'',
-      buisiness_count:'',
-      EcoavailableChildren:'',
-      EcoavailableAdults:'',
-      BuiavailableChildren:'',
-      BuiavailableAdults:'',
+      cabin:'',
+      SeatsBooked: [],
+      SeatsAvailable: '',
+      Price: '',
+      BaggageAllowance: ''
     };
   }
 
@@ -38,19 +37,14 @@ class CreateFlight extends Component {
       arrival_date: this.state.arrival_date,
       departure_airport: this.state.departure_airport,
       arrival_airport: this.state.arrival_airport,
-      economy_count: this.state.economy_count,
-      buisiness_count: this.state.buisiness_count,
       departure_time: this.state.departure_time,
       arrival_time: this.state.arrival_time,
       airport_terminal: this.state.airport_terminal,
-      BuiavailableAdults: this.state.BuiavailableAdults,
-      EcoavailableChildren: this.state.EcoavailableChildren,
-      BuiavailableChildren: this.state.BuiavailableChildren,
-      EcoavailableAdults: this.state.EcoavailableAdults,
-     
-      
-     
-
+      cabin: this.state.cabin,
+      SeatsBooked: this.state.SeatsBooked,
+      SeatsAvailable: this.state.SeatsAvailable,
+      Price: this.state.Price,
+      BaggageAllowance: this.state.BaggageAllowance
 
 
     };
@@ -69,11 +63,11 @@ class CreateFlight extends Component {
           airport_terminal:'',
           arrival_time:'',
           departure_time:'',
-          BuiavailableAdults:'',
-          EcoavailableChildren:'',
-          BuiavailableChildren:'',
-          EcoavailableAdults:''
-
+          cabin:'',
+          SeatsBooked: [],
+          SeatsAvailable: '',
+          Price: '',
+          BaggageAllowance: ''
 
         })
         this.props.history.push('/AdminPortal');
@@ -189,74 +183,47 @@ class CreateFlight extends Component {
                     onChange={this.onChange}
                   />
                 </div>
-
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Cabin'
+                    name='cabin'
+                    className='form-control'
+                    value={this.state.cabin}
+                    onChange={this.onChange}
+                  />
+                </div>
+                <div className='form-group'>
+                  <input
+                    type='number'
+                    placeholder='Seats Available'
+                    name='SeatsAvailable'
+                    className='form-control'
+                    value={this.state.SeatsAvailable}
+                    onChange={this.onChange}
+                  />
+                </div>
+                <div className='form-group'>
+                  <input
+                    type='number'
+                    placeholder='Price'
+                    name='Price'
+                    className='form-control'
+                    value={this.state.Price}
+                    onChange={this.onChange}
+                  />
+                </div>
+                <div className='form-group'>
+                  <input
+                    type='number'
+                    placeholder='BaggageAllowance'
+                    name='BaggageAllowance'
+                    className='form-control'
+                    value={this.state.BaggageAllowance}
+                    onChange={this.onChange}
+                  />
+                </div>
                 
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Number of Economy seats'
-                    name='economy_count'
-                    className='form-control'
-                    value={this.state.economy_count}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Number of Buisiness seats'
-                    name='buisiness_count'
-                    className='form-control'
-                    value={this.state.buisiness_count}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Economy available Children Seats'
-                    name='EcoavailableChildren'
-                    className='form-control'
-                    value={this.state.EcoavailableChildren}
-                    onChange={this.onChange}
-                  />
-                </div>
-                
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Buisness available Adults seats'
-                    name='BuiavailableAdults'
-                    className='form-control'
-                    value={this.state.BuiavailableAdults}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Economy available Adults seats'
-                    name='EcoavailableAdults'
-                    className='form-control'
-                    value={this.state.EcoavailableAdults}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Business available Children seats'
-                    name='BuiavailableChildren'
-                    className='form-control'
-                    value={this.state.BuiavailableChildren}
-                    onChange={this.onChange}
-                  />
-                </div>
 
 
                 <input

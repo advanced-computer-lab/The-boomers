@@ -27,7 +27,7 @@ class userReturnsearch extends Component {
     //arrival_airport: this.props.location.flightData.departure_airport,
   }
     axios
-      .post('http://localhost:8082/api/flights/usersearch', returnFlightData)
+      .post('http://localhost:8082/api/flights/search', returnFlightData)
       .then(res => {
         this.setState({
           flights: res.data

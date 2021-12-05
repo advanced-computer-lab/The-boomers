@@ -8,15 +8,13 @@ class usersearch extends Component {
   constructor() {
     super();
     this.state = {
-    
+      childrenCount:0,
+      adultsCount:0,
       departure_date:'',
       arrival_date:'',
       departure_airport: '',
       arrival_airport: '',
-      BuiavailableChildren:'',
-      BuiavailableAdults:'',
-      EcoavailableAdults:'',
-      EcoavailableChildren: ''
+      cabin:'',
 
       
     };
@@ -27,24 +25,24 @@ class usersearch extends Component {
   };
 
   onSubmit = e => {
+
     e.preventDefault();
 
     const data = {
-    
       departure_date: this.state.departure_date,
       departure_airport: this.state.departure_airport,
       arrival_date: this.state.arrival_date,
       arrival_airport: this.state.arrival_airport,
-      EcoavailableChildren: this.state.EcoavailableChildren,
-      EcoavailableAdults: this.state.EcoavailableAdults,
-      BuiavailableChildren: this.state.BuiavailableChildren,
-      BuiavailableAdults: this.state.BuiavailableAdults
+      cabin: this.state.cabin
     };
 
     
         this.props.history.push({
             pathname: '/UserPortal/usersearch_results',
-            flightData: data})
+            flightData: data,
+            passengerCount: this.state.childrenCount + this.state.adultsCount
+          })
+
        
       
   };
@@ -116,11 +114,22 @@ class usersearch extends Component {
 
                 <div className='form-group'>
                   <input
-                    type='text'
-                    placeholder='Economy available Children Seats'
-                    name='EcoavailableChildren'
+                    type='number'
+                    placeholder='Number of children'
+                    name='childrenCount'
                     className='form-control'
-                    value={this.state.EcoavailableChildren}
+                    value={this.state.childrenCount}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <input
+                    type='number'
+                    placeholder='Number of Adults'
+                    name='adultsCount'
+                    className='form-control'
+                    value={this.state.adultsCount}
                     onChange={this.onChange}
                   />
                 </div>
@@ -128,18 +137,7 @@ class usersearch extends Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Economy available Adults seats'
-                    name='EcoavailableAdults'
-                    className='form-control'
-                    value={this.state.EcoavailableAdults}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Business available Children seats'
+                    placeholder='Cabin Class'
                     name='BuiavailableChildren'
                     className='form-control'
                     value={this.state.BuiavailableChildren}
@@ -147,16 +145,7 @@ class usersearch extends Component {
                   />
                 </div>
 
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Buisness available Adults seats'
-                    name='BuiavailableAdults'
-                    className='form-control'
-                    value={this.state.BuiavailableAdults}
-                    onChange={this.onChange}
-                  />
-                </div>
+      
                 
                 <input
                     type="submit"
