@@ -16,6 +16,7 @@ import usersearch_results from './components/usersearch_results'
 import Navbar from "./components/Navbar";
 import userReturnsearch from './components/userReturnsearch';
 import confirm from './components/confirm';
+import seats from './components/seats';
 
 class App extends Component {
   render() {
@@ -37,6 +38,7 @@ class App extends Component {
         <Route path='/UserPortal/UserSearch' component= {usersearch}></Route>
         <Route path='/UserPortal/userReturnsearch' component= {userReturnsearch}></Route>
         <Route path='/UserPortal/confirm' component= {confirm}></Route>
+        <Route path='/seats' component= {seats}></Route>
        </div>
        
       </Router>

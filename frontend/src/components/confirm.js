@@ -73,7 +73,18 @@ class confirm extends Component {
         userID: 1
       })
       .then(res => {
-        this.props.history.push('/omak')
+        this.props.history.push({
+          pathname: '/seats',
+          bookingData: {
+             depID: this.state.flights[0]._id , 
+              returnID: this.state.flights[1]._id,
+             passCount: 1,
+             userID: 1,
+             bookingID: res.data._id
+          }
+        });
+
+
       })
       .catch(err =>{
         console.log('Error from confirm');
@@ -91,7 +102,7 @@ class confirm extends Component {
             <h2 className="display-4 text-center">Confirm booking</h2>
             <div className="col-md-11">
              
-              
+  
               <br />
              
               
