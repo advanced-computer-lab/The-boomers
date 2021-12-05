@@ -11,6 +11,16 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(404).json({ noflightfound: 'No Flight found' }));
 });
 
+
+
+router.get('/', (req, res) => {
+  Booking.find()
+    .then(booking => res.json(booking))
+    .catch(err => res.status(404).json({ noflightsfound: err.message  }));
+});
+
+
+
 router.post('/createBooking', (req, res) => {
   console.log(req.body)
   Booking.create(req.body)
@@ -18,4 +28,9 @@ router.post('/createBooking', (req, res) => {
     .catch(err => res.status(400).json({ error: 'Unable to add this booking' }));
 });
 
+router.delete('/:id', (req, res) => {
+  Booking.findByIdAndRemove(req.params.id, req.body)
+    .then(booking => res.json({ mgs: 'Booking entry deleted successfully' }))
+    .catch(err => res.status(404).json({ error: 'No such a Booking' }));
+});
 module.exports = router;
