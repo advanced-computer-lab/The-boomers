@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import UserFlightCard from './UserFlightCard';
 import { FaBox } from 'react-icons/fa';
 
-
 class seats extends Component {
   constructor(props) {
     super(props);
@@ -58,7 +57,27 @@ class seats extends Component {
         return seats;
     }
     const handleSubmit = () => {
+        const arr = this.state.seatsBookedDep
+        arr.push(...this.state.currentSelectionDepart)
+        const arr2 = this.state.seatsBookedReturn
+        arr2.push(...this.state.currentSelectReturn)
 
+        axios
+        .put('http://localhost:8082/api/Flights/'+this.state.depFlight._id, {SeatsBooked : arr})
+        .then(res => {
+        })
+        .catch(err => {
+          console.log("Error in UpdateFlightInfo!");
+        })
+
+        axios
+        .put('http://localhost:8082/api/Flights/'+this.state.returnFlight._id, {SeatsBooked : arr2})
+        .then(res => {
+          this.props.history.push('/');
+        })
+        .catch(err => {
+          console.log("Error in UpdateFlightInfo!");
+        })
     }
     const handleSelectDepart = (i) => {
         if(this.state.currentSelectionDepart.includes(i)){
@@ -108,7 +127,7 @@ class seats extends Component {
             </div>   
 
             <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%', height: 300}}>
-              <div style={{width: 120, height: 60, cursor: 'pointer', backgroundColor: '#C71585', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row'}} >
+              <div onClick ={()=>handleSubmit()}style={{width: 120, height: 60, cursor: 'pointer', backgroundColor: '#C71585', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row'}} >
                 <label style={{color: '#fff'}}>Reserve</label>
               </div>
             </div>
