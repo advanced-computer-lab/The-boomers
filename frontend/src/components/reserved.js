@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import ReservedCard from './ReservedCard';
-=======
-import FlightCard from './FlightCard';
->>>>>>> 0b5e29c8b6ab8d6b932d34b19cd5dbfbfd326cf1
 
 
 class reserved extends Component {
@@ -18,7 +14,6 @@ class reserved extends Component {
   }
 
 
-<<<<<<< HEAD
   componentDidMount() {
     axios
       .get('http://localhost:8082/api/booking')
@@ -30,20 +25,6 @@ class reserved extends Component {
       })
       .catch(err =>{
         console.log(err.message);
-=======
-  //NEED TO REPLACE THIS WITH A POST REQUEST TO GET RESERVED FLIGHTS FOR CURRENT USER
-  componentDidMount() {
-   console.log(this.props.location.flightData)
-    axios
-      .post('http://localhost:8082/api/flights/search', this.props.location.flightData)
-      .then(res => {
-        this.setState({
-            reserved_flights: res.data
-        })
-      })
-      .catch(err =>{
-        console.log('Error from search_results');
->>>>>>> 0b5e29c8b6ab8d6b932d34b19cd5dbfbfd326cf1
       })
   };
 
@@ -57,11 +38,7 @@ class reserved extends Component {
         reserved_flightList = "there is no flight record!";
     } else {
         reserved_flightList = reserved_flights.map((reserved_flight, k) =>
-<<<<<<< HEAD
         <ReservedCard reserved_flight={reserved_flight} />
-=======
-        <FlightCard reserved_flight={reserved_flight} key={k} />
->>>>>>> 0b5e29c8b6ab8d6b932d34b19cd5dbfbfd326cf1
       );
     }
 
