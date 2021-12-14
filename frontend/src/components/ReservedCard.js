@@ -17,7 +17,7 @@ const ReservedCard = (props) => {
                 <p>Arrival Airport :  {booking.departureFlightSeats}</p>
                 <p>Airport Terminal : {booking.returnFlightSeats}</p>
                 <p>Departure Airport : {booking.__V}</p>
-                <p>    <Link to={`UserPortal/cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p>
+                <p>    <Link to={`cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p>
 
             </div>
         </div>

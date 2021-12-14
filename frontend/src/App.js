@@ -44,7 +44,7 @@ class App extends Component {
         <Route path='/UserPortal/confirm' component= {confirm}></Route>
         <Route path='/seats' component= {seats}></Route>
         <Route path='/UserPortal/reserved' component= {reserved}></Route>
-        <Route path='/UserPortal/cancel_reservation' component= {cancel_reservation}></Route>
+        <Route path='/UserPortal/cancel_reservation/:id' component= {cancel_reservation}></Route>
 
        </div>
        

@@ -12,7 +12,20 @@ class cancel_reservation
     };
   }
 
-  
+  componentDidMount() {
+    // console.log("Print id: " + this.props.match.params.id);
+    axios
+      .get('http://localhost:8082/api/booking/'+this.props.match.params.id)
+      .then(res => {
+        // console.log("Print-showflightDetails-API-response: " + res.data);
+        this.setState({
+          booking: res.data
+        })
+      })
+      .catch(err => {
+        console.log("Error from cancel reservation");
+      })
+  };
 
   onDeleteClick (id) {
     axios
