@@ -12,6 +12,7 @@ import search  from './components/search';
 import search_results  from './components/search_results';
 import usersearch from './components/usersearch';
 import UserPortal from './components/UserPortal';
+<<<<<<< HEAD
 import usersearch_results from './components/usersearch_results'
 import Navbar from "./components/Navbar";
 import userReturnsearch from './components/userReturnsearch';
@@ -21,6 +22,10 @@ import reserved from './components/reserved';
 import cancel_reservation from './components/cancel_reservation';
 
 
+=======
+import usersearch_results from './components/usersearch_results';
+import reserved from './components/reserved';
+>>>>>>> 0b5e29c8b6ab8d6b932d34b19cd5dbfbfd326cf1
 
 class App extends Component {
   render() {
@@ -29,10 +34,18 @@ class App extends Component {
       <Router>
          <Navbar />
        <div>
+<<<<<<< HEAD
         <Route exact path='/' component={home} ></Route>
         <Route exact path='/UserPortal' component={UserPortal} ></Route>
         <Route exact path='/AdminPortal' component={ShowFlightList} ></Route>
         <Route path='/UserPortal/usersearch_results' component= {usersearch_results}></Route>
+=======
+       <Route exact path='/' component={home} ></Route>
+       <Route exact path='/UserPortal' component={UserPortal} ></Route>
+       <Route exact path='/AdminPortal' component={ShowFlightList} ></Route>
+       <Route path='/UserPortal/usersearch_results' component= {usersearch_results}></Route>
+       <Route path='/UserPortal/reserved' component= {reserved}></Route>
+>>>>>>> 0b5e29c8b6ab8d6b932d34b19cd5dbfbfd326cf1
         <Route path='/AdminPortal/create-flight' component={CreateFlight}></Route>
         <Route path='/AdminPortal/edit-flight/:id' component={UpdateFlightInfo}></Route>
         <Route path='/AdminPortal/delete-flight/:id' component={ShowFlightDetails}></Route>
