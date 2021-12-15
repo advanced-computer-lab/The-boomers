@@ -1,6 +1,6 @@
 
 // app.js
-
+const userController = require('./Routes2/userController.js');
 const express = require('express');
 //const connectDB = require('./config/db');
 var cors = require('cors');
@@ -19,13 +19,13 @@ const app = express();
 // Connect Database
 //connectDB();
 
-
+0
 app.use(cors({ origin: true, credentials: true }));
 
 app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => res.send('Hello world!'));
-
+app.post("/login", userController.login);
 app.use('/api/flights', flights);
 app.use('/api/booking', booking);
 

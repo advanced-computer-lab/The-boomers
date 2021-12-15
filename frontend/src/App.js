@@ -8,6 +8,8 @@ import ShowFlightDetails from './components/ShowFlightDetails';
 import showflight from './components/showflight';
 import UpdateFlightInfo from './components/UpdateFlightInfo';
 import home  from './components/home';
+import signup  from './components/signup';
+import LoginScreen from './components/LoginScreen';
 import search  from './components/search';
 import search_results  from './components/search_results';
 import usersearch from './components/usersearch';
@@ -35,6 +37,8 @@ class App extends Component {
         <Route path='/UserPortal/usersearch_results' component= {usersearch_results}></Route>
         <Route path='/AdminPortal/create-flight' component={CreateFlight}></Route>
         <Route path='/AdminPortal/edit-flight/:id' component={UpdateFlightInfo}></Route>
+        <Route path='/AdminPortal/signup' component={signup}></Route>
+        <Route path='/AdminPortal/login' component={LoginScreen}></Route>
         <Route path='/AdminPortal/delete-flight/:id' component={ShowFlightDetails}></Route>
         <Route path='/UserPortal/showflight/:id' component={showflight}></Route>
         <Route path='/AdminPortal/search' component={search}></Route>
