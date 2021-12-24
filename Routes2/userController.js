@@ -31,7 +31,8 @@ exports.login = (req, res) => {
                     message: 'Success',
                     token: token,
                     id : dbUser._id,
-                    First_Name : dbUser.First_Name
+                    First_Name : dbUser.First_Name,
+                    Type : dbUser.Type
                 })
               }
             )
@@ -39,6 +40,28 @@ exports.login = (req, res) => {
           else{
             return res.json({
               message: 'Invalid Username or Password'
+            })
+          }
+        })
+    })
+}
+exports.changePassword= (req, res)=>{
+  Users.findById(req.body.id)
+    .then(user => {
+        const dbPassword= user.Password;
+        bcrypt.compare(req.body.oldPassword,dbPassword)
+        .then(isCorrect=>{
+          if(isCorrect){
+              bcrypt.hash(req.body.newPassword,10)
+              .then(hashedPass=>{
+                user.Password = hashedPass;
+                user.save()
+                res.send({message: 'Success'})
+              })
+          }
+          else{
+            return res.send({
+              message: 'Incorrect Old Password'
             })
           }
         })

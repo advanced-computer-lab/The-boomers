@@ -53,7 +53,9 @@ function LoginScreen(props) {
           console.log(res.data.First_Name)
           localStorage.setItem('userID', res.data.id)
           console.log(res.data.id)
-          history.push('/')
+          if(res.data.Type === 'Customer'){
+          history.push('/UserPortal')}
+          else{ history.push('/AdminPortal')}
           setLoading(false)
         }
         else{

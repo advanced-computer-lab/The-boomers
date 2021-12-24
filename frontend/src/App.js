@@ -22,7 +22,7 @@ import seats from './components/seats';
 import reserved from './components/reserved';
 import cancel_reservation from './components/cancel_reservation';
 import UserProfile from './components/UserProfile';
-
+import ChangePassword from './components/ChangePassword';
 
 class App extends Component {
   render() {
@@ -37,8 +37,8 @@ class App extends Component {
         <Route path='/UserPortal/usersearch_results' component= {usersearch_results}></Route>
         <Route path='/AdminPortal/create-flight' component={CreateFlight}></Route>
         <Route path='/AdminPortal/edit-flight/:id' component={UpdateFlightInfo}></Route>
-        <Route path='/AdminPortal/signup' component={signup}></Route>
-        <Route path='/AdminPortal/login' component={LoginScreen}></Route>
+        <Route path='/signup' component={signup}></Route>
+        <Route path='/login' component={LoginScreen}></Route>
         <Route path='/AdminPortal/delete-flight/:id' component={ShowFlightDetails}></Route>
         <Route path='/UserPortal/showflight/:id' component={showflight}></Route>
         <Route path='/AdminPortal/search' component={search}></Route>
@@ -50,7 +50,7 @@ class App extends Component {
         <Route path='/UserPortal/reserved' component= {reserved}></Route>
         <Route path='/UserPortal/cancel_reservation' component= {cancel_reservation}></Route>
         <Route path='/UserPortal/UserProfile' component= {UserProfile}></Route>
-
+        <Route path='/UserPortal/ChangePassword' component= {ChangePassword}></Route>
        </div>
        
       </Router>

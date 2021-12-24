@@ -94,10 +94,10 @@ class UserProfile extends Component {
           { userItem }
 
           </div>
-            {/* <br />
-            <button type="button" class="btn btn-outline-info btn-lg btn-block">Edit flight</button>
-            <button type="button" class="btn btn-outline-danger btn-lg btn-block">Delete flight</button> */}
-
+            { 
+       }
+ <div>     <Link to="/UserPortal/ChangePassword" className="btn btn-outline-warning float-left">Change Password</Link>  
+            </div>
         </div>
       </div>
     );
