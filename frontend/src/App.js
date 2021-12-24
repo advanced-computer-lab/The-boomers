@@ -21,7 +21,7 @@ import confirm from './components/confirm';
 import seats from './components/seats';
 import reserved from './components/reserved';
 import cancel_reservation from './components/cancel_reservation';
-
+import UserProfile from './components/UserProfile';
 
 
 class App extends Component {
@@ -49,6 +49,7 @@ class App extends Component {
         <Route path='/seats' component= {seats}></Route>
         <Route path='/UserPortal/reserved' component= {reserved}></Route>
         <Route path='/UserPortal/cancel_reservation' component= {cancel_reservation}></Route>
+        <Route path='/UserPortal/UserProfile' component= {UserProfile}></Route>
 
        </div>
        
