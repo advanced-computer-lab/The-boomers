@@ -48,6 +48,11 @@ function LoginScreen(props) {
       .then(res => {
         if(res.data.message === 'Success'){
           localStorage.setItem('token', res.data.token)
+          console.log(res.data.token)
+          localStorage.setItem('firstName', res.data.First_Name)
+          console.log(res.data.First_Name)
+          localStorage.setItem('userID', res.data.id)
+          console.log(res.data.id)
           history.push('/')
           setLoading(false)
         }

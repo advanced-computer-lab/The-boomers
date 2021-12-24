@@ -25,6 +25,7 @@ app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => res.send('Hello world!'));
+app.post('/user',userController.getUser);
 app.post("/login", userController.login);
 app.use('/api/flights', flights);
 app.use('/api/booking', booking);

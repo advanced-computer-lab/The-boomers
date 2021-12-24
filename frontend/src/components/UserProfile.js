@@ -13,31 +13,19 @@ class UserProfile extends Component {
 
   componentDidMount() {
     console.log(this.props.location.userData);
-    console.log("Print id: " + this.props.match.params.id);
+    console.log("Print id: " + localStorage.getItem("userID"));
     axios
-      .get('http://localhost:8082/api/user/'+this.props.match.params.id)
+      .post('http://localhost:8082/user/',{id:localStorage.getItem("userID")})
       .then(res => {
         console.log("Print-showflight-API-response: " + res.data);
         this.setState({
-          user: res.data
+          user: res.data[0]
         })
       })
       .catch(err => {
         console.log("Error from UserProfile");
       })
   };
-
-  onDeleteClick (id) {
-    axios
-      .delete('http://localhost:8082/api/user/'+id)
-      .then(res => {
-        this.props.history.push("/");
-      })
-      .catch(err => {
-        console.log("Error form Showflight_deleteClick");
-      })
-  };
-
 
   render() {
 
@@ -74,18 +62,12 @@ class UserProfile extends Component {
             <td>{ user.Home_Address}</td>
           </tr>
           <tr>
-            <th scope="row">4</th>
+            <th scope="row">5</th>
             <td>Passport Number </td>
             <td>{ user.Passport_Number}</td>
           </tr>
           <tr>
-            <th scope="row">4</th>
-            <td>Password</td>
-            <td>{ user.Password}</td>
-          </tr>
-
-          <tr>
-            <th scope="row">4</th>
+            <th scope="row">6</th>
             <td>Username</td>
             <td>{ user.Username}</td>
           </tr>
@@ -109,7 +91,7 @@ class UserProfile extends Component {
             </div>
           </div>
           <div className="row">
-           
+          { userItem }
 
           </div>
             {/* <br />

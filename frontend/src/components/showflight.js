@@ -74,24 +74,24 @@ class showflight extends Component {
             <td>{ flight.arrival_airport}</td>
           </tr>
           <tr>
-            <th scope="row">4</th>
+            <th scope="row">5</th>
             <td>trip duration </td>
             <td>{ flight.trip_duration}</td>
           </tr>
           <tr>
-            <th scope="row">4</th>
+            <th scope="row">6</th>
             <td>baggage allowance</td>
             <td>{ flight.baggage_allowance}</td>
           </tr>
 
           <tr>
-            <th scope="row">4</th>
+            <th scope="row">7</th>
             <td>cabin class</td>
             <td>{ flight.cabin}</td>
           </tr>
 
           <tr>
-            <th scope="row">4</th>
+            <th scope="row">8</th>
             <td>price </td>
             <td>{ flight.price}</td>
           </tr>

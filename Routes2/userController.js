@@ -18,7 +18,8 @@ exports.login = (req, res) => {
           if(isCorrect){
             const payload = {
               id : dbUser._id,
-              First_Name : dbUser.First_Name
+              First_Name : dbUser.First_Name,
+              Type: dbUser.Type
             }
             jwt.sign(
               payload,
@@ -28,7 +29,9 @@ exports.login = (req, res) => {
                 if(err) return console.log(err)
                   res.send({
                     message: 'Success',
-                    token: token
+                    token: token,
+                    id : dbUser._id,
+                    First_Name : dbUser.First_Name
                 })
               }
             )
@@ -42,7 +45,15 @@ exports.login = (req, res) => {
     })
 }
 
-
+  exports.getUser = (req, res) => {
+    Users.find({_id: req.body.id})
+    .then(result => {
+        res.send(result);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+}
 exports.createUser = async (req, res)=>{
   const First_Name= req.body.First_Name;
   const Last_Name= req.body.Last_Name;
