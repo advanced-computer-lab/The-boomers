@@ -9,14 +9,15 @@ const ReservedCard = (props) => {
         <div className="card-container">
             <div className="desc">
                 <p>Booking ID : {booking._id}</p>
-                {/* <p>Arrival Date : {departure.arrival_date}</p>
+                 {/* <p>Arrival Date : {departure.arrival_date}</p>
                 <p>Arrival Time : {props.depFlight.arrival_time}</p>
                 <p>Departure Date: {props.depFlight.departure_date}</p>
                 <p>Departure Time: {props.depFlight.departure_time}</p>
                 <p>Arrival Airport :  {props.depFlight.arrival_airport}</p>
-                <p>Departure Airport : {props.depFlight.departure_airport}</p>
-                <p><Link to={`UserPortal/cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p> */}
-
+                <p>Departure Airport : {props.depFlight.departure_airport}</p> */}
+                <p><Link to={`UserPortal/cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p> 
+                <p><Link to={`UserPortal/cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p> 
+                <p><Link to={`UserPortal/cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p> 
             </div>
         </div>
     )

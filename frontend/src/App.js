@@ -30,7 +30,7 @@ class App extends Component {
     return (
 
       <Router>
-         <Navbar />
+         
        <div>
         <Route exact path='/' component={home} ></Route>
         <Route exact path='/UserPortal' component={UserPortal} ></Route>
@@ -49,7 +49,7 @@ class App extends Component {
         <Route path='/UserPortal/confirm' component= {confirm}></Route>
         <Route path='/seats' component= {seats}></Route>
         <Route path='/UserPortal/reserved' component= {reserved}></Route>
-        <Route path='/UserPortal/cancel_reservation' component= {cancel_reservation}></Route>
+        <Route path='/UserPortal/cancel_reservation/:id' component= {cancel_reservation}></Route>
         <Route path='/UserPortal/UserProfile' component= {UserProfile}></Route>
         <Route path='/UserPortal/ChangePassword' component= {ChangePassword}></Route>
         <Route path='/UserPortal/showBookings' component= {showBookings}></Route>
