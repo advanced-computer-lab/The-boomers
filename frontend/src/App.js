@@ -19,6 +19,7 @@ import Navbar from "./components/Navbar";
 import userReturnsearch from './components/userReturnsearch';
 import confirm from './components/confirm';
 import seats from './components/seats';
+import editseats from './components/editseats';
 import reserved from './components/reserved';
 import cancel_reservation from './components/cancel_reservation';
 import UserProfile from './components/UserProfile';
@@ -48,6 +49,7 @@ class App extends Component {
         <Route path='/UserPortal/userReturnsearch' component= {userReturnsearch}></Route>
         <Route path='/UserPortal/confirm' component= {confirm}></Route>
         <Route path='/seats' component= {seats}></Route>
+        <Route path='/editseats/:id' component= {editseats}></Route>
         <Route path='/UserPortal/reserved' component= {reserved}></Route>
         <Route path='/UserPortal/cancel_reservation/:id' component= {cancel_reservation}></Route>
         <Route path='/UserPortal/UserProfile' component= {UserProfile}></Route>
