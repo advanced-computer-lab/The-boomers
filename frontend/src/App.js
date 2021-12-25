@@ -23,6 +23,7 @@ import reserved from './components/reserved';
 import cancel_reservation from './components/cancel_reservation';
 import UserProfile from './components/UserProfile';
 import ChangePassword from './components/ChangePassword';
+import showBookings from './components/showBookings';
 
 class App extends Component {
   render() {
@@ -51,6 +52,7 @@ class App extends Component {
         <Route path='/UserPortal/cancel_reservation' component= {cancel_reservation}></Route>
         <Route path='/UserPortal/UserProfile' component= {UserProfile}></Route>
         <Route path='/UserPortal/ChangePassword' component= {ChangePassword}></Route>
+        <Route path='/UserPortal/showBookings' component= {showBookings}></Route>
        </div>
        
       </Router>

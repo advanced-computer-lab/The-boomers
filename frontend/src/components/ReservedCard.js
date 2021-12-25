@@ -4,20 +4,18 @@ import '../App.css';
 
 const ReservedCard = (props) => {
     const  booking  = props.reserved_flight;
-
+    const departure = props.depFlight;
     return(
         <div className="card-container">
             <div className="desc">
-
-                <p>id : {booking._id}</p>
-                <p>Arrival Date : {booking.departureFlightID}</p>
-                <p>Arrival Time : {booking.returnFlightID}</p>
-                <p>Departure Date: {booking.PassCount}</p>
-                <p>Departure Time: {booking.userID}</p>
-                <p>Arrival Airport :  {booking.departureFlightSeats}</p>
-                <p>Airport Terminal : {booking.returnFlightSeats}</p>
-                <p>Departure Airport : {booking.__V}</p>
-                <p>    <Link to={`UserPortal/cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p>
+                <p>Booking ID : {booking._id}</p>
+                {/* <p>Arrival Date : {departure.arrival_date}</p>
+                <p>Arrival Time : {props.depFlight.arrival_time}</p>
+                <p>Departure Date: {props.depFlight.departure_date}</p>
+                <p>Departure Time: {props.depFlight.departure_time}</p>
+                <p>Arrival Airport :  {props.depFlight.arrival_airport}</p>
+                <p>Departure Airport : {props.depFlight.departure_airport}</p>
+                <p><Link to={`UserPortal/cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p> */}
 
             </div>
         </div>

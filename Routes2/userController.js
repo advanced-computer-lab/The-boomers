@@ -3,6 +3,13 @@ require("dotenv").config({ path: "../config.env"});
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+exports.updateUser = (req, res)=>{
+  Users.findByIdAndUpdate(req.params.userID, req.body)
+  .then(result => {
+      res.status(200).send("User updated")})
+  .catch(err => {console.log(err); res.status(500);});
+}
+
 exports.login = (req, res) => {
   const userLoggingIn = req.body;
   Users.findOne({Username: userLoggingIn.Username})

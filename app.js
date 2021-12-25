@@ -27,10 +27,10 @@ app.use(express.json({ extended: false }));
 app.get('/', (req, res) => res.send('Hello world!'));
 app.post('/user',userController.getUser);
 app.post("/login", userController.login);
+app.put("/updateUser/:userID", userController.updateUser)
 app.use('/api/flights', flights);
 app.use('/api/booking', booking);
 app.post("/createuser", userController.createUser);
 app.post("/ChangePassword", userController.changePassword)
 const port = process.env.PORT || 8082;
-
 app.listen(port, () => console.log(`Server running on port ${port}`));

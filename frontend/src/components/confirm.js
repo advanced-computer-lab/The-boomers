@@ -10,6 +10,7 @@ class confirm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      bookings: [],
       flights: [],
       depID: '',
       returnID: ''
@@ -17,6 +18,16 @@ class confirm extends Component {
   }
 
   componentDidMount() {
+    axios
+    .post('http://localhost:8082/user', {
+      id: localStorage.getItem('userID')
+    })
+    .then(res => {
+      this.setState({bookings: res.data[0].Bookings})
+    })
+    .catch(err =>{
+      console.log('Error from confirm');
+    })
    console.log(this.props.location.depID)
    console.log(this.props.location.flightID)
    const array = [];
@@ -41,12 +52,8 @@ class confirm extends Component {
       })
       .catch(err =>{
         console.log('Error from confirm');
-      })
-      
-      
+      }) 
   };
-
-
 
   render() {
     
@@ -63,14 +70,12 @@ class confirm extends Component {
     }
 
     const handleSubmit = () => {
-      console.log('reached')
-      console.log(this.props.location.passengerCount)
       axios
       .post('http://localhost:8082/api/booking/createBooking', {
         departureFlightID: this.state.flights[0]._id,
         returnFlightID: this.state.flights[1]._id,
         PassCount: this.props.location.passengerCount,
-        userID: 1
+        userID: localStorage.getItem('userID')
       })
       .then(res => {
         this.props.history.push({
@@ -79,12 +84,19 @@ class confirm extends Component {
              depID: this.state.flights[0]._id , 
               returnID: this.state.flights[1]._id,
              passCount: this.props.location.passengerCount,
-             userID: 1,
+             userID: localStorage.getItem('userID'),
              bookingID: res.data._id
           }
         });
-
-
+        const arr = this.state.bookings.slice()
+        arr.push(res.data._id)
+        const data = {
+          Bookings: arr
+        }
+        axios.put('http://localhost:8082/updateUser/' + localStorage.getItem('userID'), data)
+          .then(result=> {
+        })
+          .catch(err => console.log(err));
       })
       .catch(err =>{
         console.log('Error from confirm');
