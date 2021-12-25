@@ -1,0 +1,41 @@
+.container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.form {
+  width: 100%;
+  height: 590px;
+  position: relative;
+  align-self: flex-start;
+}
+.text {
+  top: 41px;
+  left: 543px;
+  position: absolute;
+  align-self: flex-end;
+}
+.UsernameInput {
+  top: 165px;
+  right: 442px;
+  position: absolute;
+}
+.Username {
+  top: 133px;
+  left: 415px;
+  position: absolute;
+}
+.Password {
+  top: 267px;
+  left: 414px;
+  position: absolute;
+}
+.PasswordInput {
+  top: 297px;
+  left: 415px;
+  position: absolute;
+}

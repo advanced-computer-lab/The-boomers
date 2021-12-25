@@ -1,0 +1,199 @@
+.Nav-bar {
+  width: 100%;
+  height: 137px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dl-color-primary-500);
+}
+.Navbar {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-doubleunit);
+  max-width: 1000px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.image {
+  width: 129px;
+  height: 102px;
+  object-fit: cover;
+}
+.container {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: space-between;
+  flex-direction: column;
+}
+.BurgerMenu {
+  display: none;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.Burger-menu {
+  width: 24px;
+  height: 24px;
+}
+.Right-side {
+  width: 487px;
+  height: 53px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.Links-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.navlink {
+  text-decoration: none;
+}
+.Link {
+  margin-left: var(--dl-space-space-doubleunit);
+}
+.link1 {
+  top: 16px;
+  right: -69px;
+  position: absolute;
+}
+.image1 {
+  right: 22px;
+  width: 38px;
+  bottom: 8px;
+  height: 34px;
+  position: absolute;
+  object-fit: cover;
+}
+.MobileMenu {
+  top: 0px;
+  flex: 0 0 auto;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: none;
+  padding: var(--dl-space-space-doubleunit);
+  z-index: 100;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.Nav {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.Top {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-doubleunit);
+  flex-direction: row;
+  justify-content: space-between;
+}
+.CloseMenu {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.icon03 {
+  width: 24px;
+  height: 24px;
+}
+.Right-side1 {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.Links-container1 {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.text {
+  margin-bottom: 8px;
+}
+.text1 {
+  margin-bottom: 8px;
+}
+.text2 {
+  margin-bottom: 8px;
+}
+.link2 {
+  display: contents;
+}
+.Follow-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.text4 {
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.Icons-container {
+  width: 100px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.link3 {
+  display: contents;
+}
+.icon05 {
+  width: 24px;
+  height: 24px;
+}
+.link4 {
+  display: contents;
+}
+.icon07 {
+  width: 24px;
+  height: 24px;
+}
+.link5 {
+  display: contents;
+}
+.icon09 {
+  width: 24px;
+  height: 24px;
+}
+
+
+.rootClassName2 {
+  top: 0px;
+  right: 0px;
+  position: absolute;
+}
+
+
+
+
+
+
+
+
+@media(max-width: 767px) {
+  .BurgerMenu {
+    display: flex;
+  }
+  .Right-side {
+    display: none;
+  }
+}

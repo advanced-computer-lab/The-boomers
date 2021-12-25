@@ -1,0 +1,110 @@
+.container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.form {
+  width: 100%;
+  height: 592px;
+  position: relative;
+}
+.Departure-airport {
+  top: 109px;
+  left: 200px;
+  position: absolute;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Cabin-class {
+  top: 360px;
+  left: 201px;
+  position: absolute;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Arrival-Airport {
+  top: 109px;
+  left: 776px;
+  position: absolute;
+  align-self: flex-start;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Departure-Date {
+  top: 191px;
+  left: 200px;
+  position: absolute;
+  align-self: flex-start;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Arrival-Date {
+  top: 190px;
+  left: 776px;
+  position: absolute;
+  align-self: flex-start;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.text1 {
+  top: 15px;
+  left: 462px;
+  position: absolute;
+}
+.Number-of-Children {
+  top: 271px;
+  left: 775px;
+  position: absolute;
+  align-self: flex-start;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Number-of-Adults {
+  top: 272px;
+  left: 200px;
+  position: absolute;
+  align-self: flex-start;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.textinput {
+  top: 137px;
+  right: 106px;
+  position: absolute;
+}
+.textinput1 {
+  top: 141px;
+  left: 179px;
+  position: absolute;
+}
+.textinput2 {
+  top: 301px;
+  right: 104px;
+  position: absolute;
+}
+.textinput3 {
+  top: 304px;
+  left: 182px;
+  position: absolute;
+}
+.textinput4 {
+  top: 221px;
+  left: 181px;
+  position: absolute;
+}
+.textinput5 {
+  top: 217px;
+  right: 105px;
+  position: absolute;
+}
+.textinput6 {
+  top: 394px;
+  left: 183px;
+  position: absolute;
+}

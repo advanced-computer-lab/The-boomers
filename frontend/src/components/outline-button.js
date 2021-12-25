@@ -7,7 +7,7 @@ import styles from './outline-button.module.css'
 
 const OutlineButton = (props) => {
   return (
-    <div className={styles['container']}>
+    <div className={` ${styles['container']} ${styles[props.rootClassName]} `}>
       <button
         className={` ${styles['button']} ${projectStyles['button']} ${projectStyles['button']} `}
       >
@@ -19,10 +19,12 @@ const OutlineButton = (props) => {
 
 OutlineButton.defaultProps = {
   button1: 'Button',
+  rootClassName: '',
 }
 
 OutlineButton.propTypes = {
   button1: PropTypes.string,
+  rootClassName: PropTypes.string,
 }
 
 export default OutlineButton

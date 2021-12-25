@@ -1,0 +1,130 @@
+.container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.Dashboard {
+  width: 200px;
+  height: 911px;
+  display: flex;
+  position: relative;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #643843;
+}
+.Account-Details {
+  margin-top: var(--dl-space-space-quadruple);
+}
+.Change-Password {
+  margin-top: var(--dl-space-space-quadruple);
+}
+.My-Bookings {
+  margin-top: var(--dl-space-space-quadruple);
+}
+.Main-Body-Container {
+  top: 134px;
+  right: -1px;
+  width: 1002px;
+  height: 914px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.text {
+  align-self: center;
+  margin-top: var(--dl-space-space-doubleunit);
+  margin-left: 0px;
+}
+.First-name {
+  margin-top: var(--dl-space-space-doubleunit);
+  margin-left: var(--dl-space-space-doubleunit);
+  padding-top: var(--dl-space-space-doubleunit);
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Last-name {
+  align-self: flex-start;
+  margin-top: var(--dl-space-space-doubleunit);
+  margin-left: var(--dl-space-space-doubleunit);
+  padding-top: var(--dl-space-space-doubleunit);
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Email {
+  align-self: flex-start;
+  margin-top: var(--dl-space-space-doubleunit);
+  margin-left: var(--dl-space-space-doubleunit);
+  padding-top: var(--dl-space-space-doubleunit);
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Username {
+  align-self: flex-start;
+  margin-top: var(--dl-space-space-doubleunit);
+  margin-left: var(--dl-space-space-doubleunit);
+  padding-top: var(--dl-space-space-doubleunit);
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Passport-Number {
+  align-self: flex-start;
+  margin-top: var(--dl-space-space-doubleunit);
+  margin-left: var(--dl-space-space-doubleunit);
+  padding-top: var(--dl-space-space-doubleunit);
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Home-Address {
+  align-self: flex-start;
+  margin-top: var(--dl-space-space-doubleunit);
+  margin-left: var(--dl-space-space-doubleunit);
+  padding-top: var(--dl-space-space-doubleunit);
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.text1 {
+  top: 174px;
+  left: 301px;
+  position: absolute;
+}
+.container1 {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.text2 {
+  top: -294px;
+  right: -334px;
+  position: absolute;
+}
+.text3 {
+  top: -384px;
+  right: -334px;
+  position: absolute;
+}
+.text4 {
+  top: 443px;
+  left: 302px;
+  position: absolute;
+}
+.text5 {
+  top: 530px;
+  left: 303px;
+  position: absolute;
+}
+.text6 {
+  top: 620px;
+  left: 305px;
+  position: absolute;
+}

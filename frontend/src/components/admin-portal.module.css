@@ -1,0 +1,214 @@
+.container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.Dashboard {
+  width: 200px;
+  height: 911px;
+  display: flex;
+  position: relative;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #643843;
+}
+.Account-Details {
+  margin-top: var(--dl-space-space-quadruple);
+}
+.Change-Password {
+  margin-top: var(--dl-space-space-quadruple);
+}
+.Main-Body-Container {
+  top: 134px;
+  right: -1px;
+  width: 1002px;
+  height: 914px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.text {
+  align-self: center;
+  margin-top: var(--dl-space-space-doubleunit);
+  margin-left: 0px;
+}
+.Footer {
+  color: var(--dl-color-gray-white);
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-tripleunit);
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background-color: var(--dl-color-primary-500);
+}
+.Menu {
+  width: 100%;
+  display: flex;
+  max-width: 1000px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.image {
+  width: 129px;
+  height: 102px;
+  object-fit: cover;
+}
+.Links-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container1 {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 100px;
+  flex-direction: column;
+}
+.link {
+  color: #000000;
+  margin-bottom: var(--dl-space-space-unit);
+  text-decoration: none;
+}
+.link01 {
+  color: #000000;
+  margin-bottom: var(--dl-space-space-unit);
+  text-decoration: none;
+}
+.link02 {
+  color: #000000;
+  margin-bottom: var(--dl-space-space-unit);
+  text-decoration: none;
+}
+.Link03 {
+  color: #000000;
+  text-decoration: none;
+}
+.container2 {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 100px;
+  flex-direction: column;
+}
+.link04 {
+  color: #000000;
+  margin-bottom: var(--dl-space-space-unit);
+  text-decoration: none;
+}
+.link05 {
+  color: #000000;
+  margin-bottom: var(--dl-space-space-unit);
+  text-decoration: none;
+}
+.link06 {
+  color: #000000;
+  margin-bottom: var(--dl-space-space-unit);
+  text-decoration: none;
+}
+.link07 {
+  color: #000000;
+  text-decoration: none;
+}
+.Follow-container {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.text1 {
+  color: #000000;
+  padding-bottom: var(--dl-space-space-halfunit);
+}
+.Icons-container {
+  width: 100px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.link08 {
+  display: contents;
+}
+.icon {
+  fill: #000000;
+  width: 24px;
+  height: 24px;
+}
+.link09 {
+  display: contents;
+}
+.icon2 {
+  fill: #000000;
+  width: 24px;
+  height: 24px;
+}
+.link10 {
+  display: contents;
+}
+.icon4 {
+  fill: #000000;
+  width: 24px;
+  height: 24px;
+}
+@media(max-width: 767px) {
+  .Menu {
+    flex-direction: column;
+  }
+  .Links-container {
+    margin-top: var(--dl-space-space-tripleunit);
+    margin-bottom: var(--dl-space-space-tripleunit);
+    justify-content: space-between;
+  }
+  .container1 {
+    margin-left: 0px;
+  }
+}
+@media(max-width: 479px) {
+  .Links-container {
+    margin-top: var(--dl-space-space-doubleunit);
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .link {
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .link01 {
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .link02 {
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .Link03 {
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .container2 {
+    height: 100%;
+    align-items: flex-start;
+    margin-left: 50px;
+  }
+  .link04 {
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .link05 {
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .link06 {
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .link07 {
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .Follow-container {
+    margin-left: 0px;
+  }
+}

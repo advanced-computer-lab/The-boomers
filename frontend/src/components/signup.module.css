@@ -1,0 +1,109 @@
+.container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.form {
+  width: 100%;
+  height: 592px;
+  position: relative;
+}
+.First-name {
+  top: 109px;
+  left: 200px;
+  position: absolute;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Password {
+  top: 360px;
+  left: 201px;
+  position: absolute;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Last-name {
+  top: 109px;
+  left: 776px;
+  position: absolute;
+  align-self: flex-start;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Email {
+  top: 191px;
+  left: 200px;
+  position: absolute;
+  align-self: flex-start;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Username {
+  top: 190px;
+  left: 776px;
+  position: absolute;
+  align-self: flex-start;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.text {
+  top: 41px;
+  left: 543px;
+  position: absolute;
+}
+.Passport-Number {
+  top: 271px;
+  left: 775px;
+  position: absolute;
+  align-self: flex-start;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.Home-Address {
+  top: 272px;
+  left: 200px;
+  position: absolute;
+  align-self: flex-start;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.textinput {
+  top: 137px;
+  right: 106px;
+  position: absolute;
+}
+.textinput1 {
+  top: 141px;
+  left: 179px;
+  position: absolute;
+}
+.textinput2 {
+  top: 301px;
+  right: 104px;
+  position: absolute;
+}
+.textinput3 {
+  top: 304px;
+  left: 182px;
+  position: absolute;
+}
+.textinput4 {
+  top: 221px;
+  left: 181px;
+  position: absolute;
+}
+.textinput5 {
+  top: 217px;
+  right: 105px;
+  position: absolute;
+}
+.textinput6 {
+  top: 394px;
+  left: 183px;
+  position: absolute;
+}

@@ -15,9 +15,8 @@ const ReservedCard = (props) => {
                 <p>Departure Time: {props.depFlight.departure_time}</p>
                 <p>Arrival Airport :  {props.depFlight.arrival_airport}</p>
                 <p>Departure Airport : {props.depFlight.departure_airport}</p> */}
-                <p><Link to={`UserPortal/cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p> 
-                <p><Link to={`UserPortal/cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p> 
-                <p><Link to={`UserPortal/cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p> 
+                <p><Link to={`cancel_reservation/${booking._id}`}>Cancel reservation</Link> </p> 
+               
             </div>
         </div>
     )
