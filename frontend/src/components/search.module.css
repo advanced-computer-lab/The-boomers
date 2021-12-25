@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: flex-end;
 }
-.form {
+.Form {
   width: 100%;
   height: 592px;
   position: relative;
@@ -73,38 +73,39 @@
   padding-left: 0px;
   padding-right: 0px;
 }
-.textinput {
+.Arrival-Airport1 {
   top: 137px;
   right: 106px;
   position: absolute;
 }
-.textinput1 {
+.Departure-airport1 {
   top: 141px;
   left: 179px;
   position: absolute;
 }
-.textinput2 {
+.Number-of-children1 {
   top: 301px;
   right: 104px;
   position: absolute;
 }
-.textinput3 {
+.Number-of-adults1 {
   top: 304px;
   left: 182px;
   position: absolute;
 }
-.textinput4 {
+.Departure-date1 {
   top: 221px;
   left: 181px;
   position: absolute;
 }
-.textinput5 {
+.Arrival-date1 {
   top: 217px;
   right: 105px;
   position: absolute;
 }
-.textinput6 {
+.Cabin-class1 {
   top: 394px;
   left: 183px;
   position: absolute;
 }
+

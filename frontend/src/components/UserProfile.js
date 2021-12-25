@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
+import { Helmet } from 'react-helmet'
+
+import HEADER from '../components/h-e-a-d-e-r'
+import Footer from '../components/footer'
+import styles from './profile.module.css'
+
 
 class UserProfile extends Component {
   constructor(props) {
@@ -31,74 +37,56 @@ class UserProfile extends Component {
 
     const user = this.state.user;
     let userItem = <div>
-      <table className="table table-hover table-dark">
-        {/* <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead> */}
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>First name</td>
-            <td>{ user.First_Name}</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Last name</td>
-            <td>{ user.Last_Name }</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Email</td>
-            <td>{ user.Email }</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Home Address</td>
-            <td>{ user.Home_Address}</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Passport Number </td>
-            <td>{ user.Passport_Number}</td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td>Username</td>
-            <td>{ user.Username}</td>
-          </tr>
-          
-        </tbody>
-      </table>
+     
+        <div className={styles['container']}>
+      <Helmet>
+        <title>Profile - Travel Agency</title>
+        <meta property="og:title" content="Profile - Travel Agency" />
+      </Helmet>
+      <HEADER></HEADER>
+      <div className={styles['Dashboard']}>
+        <a
+          href="/userportal/userprofile"
+          target="_blank"
+          rel="noreferrer noopener"
+          className={styles['Account-Details']}
+        >
+          Account Details
+        </a>
+        <a
+          href="/userportal/changepassword"
+          target="_blank"
+          rel="noreferrer noopener"
+          className={styles['Change-Password']}
+        >
+          Change Password
+        </a>
+        <a
+          href="/userportal/showbookings"
+          target="_blank"
+          rel="noreferrer noopener"
+          className={styles['My-Bookings']}
+        >
+          My Bookings
+        </a>
+      </div>
+      <div className={styles['Main-Body-Container']}>
+        <h1 className={styles['text']}>Welcome, { user.First_Name}</h1>
+        <label className={styles['First-name']}>First Name : { user.First_Name}</label>
+        <label className={styles['Last-name']}>Last Name: {user.Last_Name}</label>
+        <label className={styles['Email']}>Email: {user.Email}</label>
+        <label className={styles['Username']}>Username: { user.Username}</label>
+        <label className={styles['Passport-Number']}>Passport Number: { user.Passport_Number}</label>
+        <label className={styles['Home-Address']}>Home Address: { user.Home_Address}</label>
+      </div>
+      <Footer></Footer>
+    </div>
+        
     </div>
 
     return (
-      <div className="ShowFlightDetails">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-10 m-auto">
-              <br /> <br />
-              
-            </div>
-            <br />
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">User Profile</h1>
-              <hr /> <br />
-            </div>
-          </div>
-          <div className="row">
+ <div className="row">
           { userItem }
-
-          </div>
-            { 
-       }
- <div>     <Link to="/UserPortal/ChangePassword" className="btn btn-outline-warning float-left">Change Password</Link>  
-            </div>
-        </div>
       </div>
     );
   }

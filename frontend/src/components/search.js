@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 
 
-
 class search extends Component {
   constructor() {
     super();
