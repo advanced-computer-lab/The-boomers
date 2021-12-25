@@ -1,0 +1,61 @@
+.container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.FirstName {
+  top: 400px;
+  left: 127px;
+  width: 412px;
+  height: 58px;
+  position: absolute;
+}
+.LastName {
+  top: 500px;
+  left: 127px;
+  width: 412px;
+  height: 58px;
+  position: absolute;
+}
+.Email {
+  top: 600px;
+  left: 127px;
+  width: 412px;
+  height: 58px;
+  position: absolute;
+}
+.UserName {
+  top: 700px;
+  left: 127px;
+  width: 412px;
+  height: 58px;
+  position: absolute;
+}
+.PhoneNumber {
+  top: 800px;
+  left: 127px;
+  width: 412px;
+  height: 58px;
+  position: absolute;
+}
+.Password {
+  top: 900px;
+  left: 127px;
+  width: 412px;
+  height: 58px;
+  position: absolute;
+}
+.SignUp {
+  color: #319074;
+  width: 1200px;
+  height: 1476px;
+  font-size: 12em;
+  align-self: flex-start;
+  font-style: normal;
+  text-align: center;
+  font-weight: 700;
+}

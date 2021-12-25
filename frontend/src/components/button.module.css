@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  position: relative;
+}
+.button {
+  height: 52px;
+  font-size: 27px;
+  align-self: center;
+  text-align: center;
+  border-color: #319074;
+  border-width: 4px;
+}
+.rootClassName {
+  left: 544px;
+  bottom: 108px;
+  align-self: flex-start;
+}

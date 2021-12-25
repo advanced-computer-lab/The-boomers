@@ -2,6 +2,9 @@ import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
+import Button from './button'
+import projectStyles from '../style.module.css'
+import styles from './home.module.css'
 
 function Signup(props) {
 
@@ -137,6 +140,44 @@ function Signup(props) {
 
   return (
     <Container>
+      <div className={styles['container']}>
+      <input
+        type="text"
+        placeholder="placeholder"
+        className={` ${styles['FirstName']} ${projectStyles['input']} `}
+      />
+      <input
+        type="text"
+        placeholder="placeholder"
+        className={` ${styles['LastName']} ${projectStyles['input']} `}
+      />
+      <input
+        type="text"
+        placeholder="placeholder"
+        className={` ${styles['Email']} ${projectStyles['input']} `}
+      />
+      <input
+        type="text"
+        placeholder="placeholder"
+        className={` ${styles['UserName']} ${projectStyles['input']} `}
+      />
+      <input
+        type="text"
+        placeholder="placeholder"
+        className={` ${styles['PhoneNumber']} ${projectStyles['input']} `}
+      />
+      <input
+        type="text"
+        placeholder="placeholder"
+        className={` ${styles['Password']} ${projectStyles['input']} `}
+      />
+      <h1 className={styles['SignUp']}>
+        <span>Sign Up</span>
+        <br></br>
+        <span></span>
+      </h1>
+      <Button rootClassName="rootClassName"></Button>
+    </div>
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <div style={{boxShadow: '0px 1px 5px  0.35px #000', width:  '80%', marginTop: 30, display: 'flex', flexDirection: 'row'}}>
           <div style={{display: 'flex', flexDirection: 'column', width: '60%', alignItems: 'center'}}>
