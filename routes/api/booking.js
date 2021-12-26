@@ -12,6 +12,17 @@ router.get('/:id', (req, res) => {
 });
 
 
+router.put('/:id', (req, res) => {
+  console.log(req.body)
+  console.log(req.params.id)
+  Booking.findByIdAndUpdate(req.params.id, req.body)
+    .then(booking => res.json({ msg: 'Updated successfully' }))
+    .catch(err =>
+      res.status(400).json({ error: 'Unable to update the Database' })
+    );
+});
+
+
 
 router.get('/', (req, res) => {
   Booking.find()

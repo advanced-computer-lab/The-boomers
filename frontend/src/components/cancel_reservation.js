@@ -40,32 +40,36 @@ class cancel_reservation
   
 
   onDeleteClick (id) {
-    axios
-      .delete('http://localhost:8082/api/booking/'+id)
-      .then(res => {
-        this.props.history.push("/userportal/showbookings");
-      })
-      .catch(err => {
-        console.log("Error form ShowbookingDetails_deleteClick");
-      })
-      axios
-    .post('http://localhost:8082/user', {
-      id: localStorage.getItem('userID')
-    })
-    .then(res => {
-      this.setState({bookings: res.data[0].Bookings})
-    })
-    .catch(err =>{
-      console.log('Error from confirm');
-    })
-    
-      const arr = this.state.bookings.slice()
-      arr.pop(id)
-        const data = {
-          Bookings: arr
-        }
-        axios.put('http://localhost:8082/updateUser/' + localStorage.getItem('userID'), data)
-     
+        // const arr2 = []
+        // const arr3 = []
+        // axios
+        // .put('http://localhost:8082/api/Flights/'+this.state.booking.departureFlightID, {SeatsBooked : arr2})
+        // .then(res => {
+        // })
+        // .catch(err => {
+        //   console.log("Error in UpdateFlightInfo!");
+        // })
+        // axios
+        // .put('http://localhost:8082/api/Flights/'+this.state.booking.returnFlightID, {SeatsBooked : arr3})
+        // .then(res => {
+        // })
+        // .catch(err => {
+        //   console.log("Error in UpdateFlightInfo!");
+        // })
+        axios
+        .delete('http://localhost:8082/api/booking/'+id)
+        .then(res => {
+          this.props.history.push("/userportal/showbookings");
+        })
+        .catch(err => {
+          console.log("Error form ShowbookingDetails_deleteClick");
+        })
+        const arr = this.state.bookings.slice()
+        arr.splice(arr.indexOf(id), 1)
+          const data = {
+            Bookings: arr
+          }
+          axios.put('http://localhost:8082/updateUser/' + localStorage.getItem('userID'), data)
   };
 
 

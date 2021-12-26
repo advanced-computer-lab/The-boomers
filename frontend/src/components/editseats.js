@@ -25,12 +25,22 @@ class editseats extends Component {
     this.setState({booking: res.data})
     const res2 = await axios.get('http://localhost:8082/api/flights/'+res.data.departureFlightID)
     this.setState({depFlight: res2.data})
-    this.setState({seatsBookedDep: res2.data.SeatsBooked === null ? [] : res2.data.SeatsBooked})
+    this.setState({currentSelectionDepart: res.data.departureFlightSeats})
+    this.setState({currentSelectReturn: res.data.returnFlightSeats})
+    console.log(res.data)
+    const arr = res2.data.SeatsBooked
+    for(let i = 0; i < res.data.departureFlightSeats.length; i++){
+      arr.splice(arr.indexOf(res.data.departureFlightSeats[i]),1)
+    }
+    this.setState({seatsBookedDep: arr === null ? [] : arr})
     const res3 = await axios.get('http://localhost:8082/api/flights/'+res.data.returnFlightID)
     this.setState({returnFlight: res3.data})
+    const arr2 = res3.data.SeatsBooked
+    for(let i = 0; i < res.data.returnFlightSeats.length; i++){
+      arr2.splice(arr2.indexOf(res.data.returnFlightSeats[i]),1)
+    }
+    this.setState({seatsBookedReturn: arr2 === null ? [] : arr2})
     this.setState({loading: false})
-    this.setState({seatsBookedReturn: res3.data.SeatsBooked === null ? [] : res3.data.SeatsBooked})
-    
   };
 
 
@@ -39,7 +49,7 @@ class editseats extends Component {
         let seats = [];
         for (let i = 0; i < this.state.depFlight.SeatsAvailable; i++) {
           seats.push(
-                <div onClick={() => handleSelectDepart(i)} style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.currentSelectionDepart.includes(i) ||  this.state.seatsBookedDep.includes(i)? '#f00' : '#0f0'}}/>
+                <div onClick={() => handleSelectDepart(i)} style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.currentSelectionDepart.includes(i) ? '#00f' :  (this.state.seatsBookedDep.includes(i)? '#f00' : '#0f0')}}/>
           )
         }
         return seats;
@@ -51,7 +61,7 @@ class editseats extends Component {
         
         for (let i = 0; i < this.state.returnFlight.SeatsAvailable; i++) {
           seats.push(
-                <div onClick={() => handleSelectReturn(i)} style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedReturn.includes(i)   || this.state.currentSelectReturn.includes(i) ? '#f00' : '#0f0'}}/>
+                <div onClick={() => handleSelectReturn(i)} style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.currentSelectReturn.includes(i) ? '#00f' :  (this.state.seatsBookedReturn.includes(i) ? '#f00' : '#0f0')}}/>
           )
         }
         return seats;
@@ -64,6 +74,21 @@ class editseats extends Component {
 
         axios
         .put('http://localhost:8082/api/Flights/'+this.state.depFlight._id, {SeatsBooked : arr})
+        .then(res => {
+        })
+        .catch(err => {
+          console.log("Error in UpdateFlightInfo!");
+        })
+        axios
+        .put('http://localhost:8082/api/booking/'+this.state.booking._id, {departureFlightSeats : this.state.currentSelectionDepart})
+        .then(res => {
+        })
+        .catch(err => {
+          console.log("Error in UpdateFlightInfo!");
+        })
+
+        axios
+        .put('http://localhost:8082/api/booking/'+this.state.booking._id, {returnFlightSeats : this.state.currentSelectReturn})
         .then(res => {
         })
         .catch(err => {

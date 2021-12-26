@@ -22,40 +22,40 @@ class seats extends Component {
 
   async componentDidMount() {
     const res = await axios.get('http://localhost:8082/api/booking/'+this.props.location.bookingData.bookingID)
-    this.setState({booking: res})
+    this.setState({booking: res.data})
     const res2 = await axios.get('http://localhost:8082/api/flights/'+this.props.location.bookingData.depID)
     this.setState({depFlight: res2.data})
     this.setState({seatsBookedDep: res2.data.SeatsBooked === null ? [] : res2.data.SeatsBooked})
     const res3 = await axios.get('http://localhost:8082/api/flights/'+this.props.location.bookingData.returnID)
     this.setState({returnFlight: res3.data})
     this.setState({loading: false})
-    this.setState({seatsBookedDep: res3.data.SeatsBooked === null ? [] : res3.data.SeatsBooked})
+    this.setState({seatsBookedReturn: res3.data.SeatsBooked === null ? [] : res3.data.SeatsBooked})
     console.log(this.props.location.bookingData.passCount)
   };
 
 
   render() {
     const renderDepSeats = () => {
-        let seats = [];
-        for (let i = 0; i < this.state.depFlight.SeatsAvailable; i++) {
-          seats.push(
-                <div onClick={() => handleSelectDepart(i)} style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedDep.includes(i) || this.state.currentSelectionDepart.includes(i) ? '#f00' : '#0f0'}}/>
-          )
-        }
-        return seats;
-    }
-    
+      let seats = [];
+      for (let i = 0; i < this.state.depFlight.SeatsAvailable; i++) {
+        seats.push(
+              <div onClick={() => handleSelectDepart(i)} style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.currentSelectionDepart.includes(i) ? '#00f' :  (this.state.seatsBookedDep.includes(i)? '#f00' : '#0f0')}}/>
+        )
+      }
+      return seats;
+  }
+  
 
-    const renderReturnSeats = () => {
-        let seats = [];
-        
-        for (let i = 0; i < this.state.returnFlight.SeatsAvailable; i++) {
-          seats.push(
-                <div onClick={() => handleSelectReturn(i)} style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.seatsBookedReturn.includes(i) || this.state.currentSelectReturn.includes(i) ? '#f00' : '#0f0'}}/>
-          )
-        }
-        return seats;
-    }
+  const renderReturnSeats = () => {
+      let seats = [];
+      
+      for (let i = 0; i < this.state.returnFlight.SeatsAvailable; i++) {
+        seats.push(
+              <div onClick={() => handleSelectReturn(i)} style={{marginLeft: i !== 0 ? 20 : 0, width: 50, height: 50, cursor: 'pointer', backgroundColor: this.state.currentSelectReturn.includes(i) ? '#00f' :  (this.state.seatsBookedReturn.includes(i) ? '#f00' : '#0f0')}}/>
+        )
+      }
+      return seats;
+  }
     const handleSubmit = () => {
         const arr = this.state.seatsBookedDep
         arr.push(...this.state.currentSelectionDepart)
@@ -64,6 +64,22 @@ class seats extends Component {
 
         axios
         .put('http://localhost:8082/api/Flights/'+this.state.depFlight._id, {SeatsBooked : arr})
+        .then(res => {
+        })
+        .catch(err => {
+          console.log("Error in UpdateFlightInfo!");
+        })
+
+        axios
+        .put('http://localhost:8082/api/booking/'+this.state.booking._id, {departureFlightSeats : this.state.currentSelectionDepart})
+        .then(res => {
+        })
+        .catch(err => {
+          console.log("Error in UpdateFlightInfo!");
+        })
+
+        axios
+        .put('http://localhost:8082/api/booking/'+this.state.booking._id, {returnFlightSeats : this.state.currentSelectReturn})
         .then(res => {
         })
         .catch(err => {
