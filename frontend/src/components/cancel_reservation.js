@@ -9,7 +9,8 @@ class cancel_reservation
     super(props);
     this.state = {
       booking: {},
-      bookings:[]
+      bookings:[],
+      user: {}
     };
   }
 
@@ -20,6 +21,7 @@ class cancel_reservation
     })
     .then(res => {
       this.setState({bookings: res.data[0].Bookings})
+      this.setState({user: res.data[0]})
     })
     .catch(err =>{
       console.log('Error from confirm');
@@ -39,23 +41,32 @@ class cancel_reservation
   };
   
 
-  onDeleteClick (id) {
-        // const arr2 = []
-        // const arr3 = []
-        // axios
-        // .put('http://localhost:8082/api/Flights/'+this.state.booking.departureFlightID, {SeatsBooked : arr2})
-        // .then(res => {
-        // })
-        // .catch(err => {
-        //   console.log("Error in UpdateFlightInfo!");
-        // })
-        // axios
-        // .put('http://localhost:8082/api/Flights/'+this.state.booking.returnFlightID, {SeatsBooked : arr3})
-        // .then(res => {
-        // })
-        // .catch(err => {
-        //   console.log("Error in UpdateFlightInfo!");
-        // })
+  async onDeleteClick (id) {
+        const res = await axios.get('http://localhost:8082/api/flights/'+this.state.booking.departureFlightID)
+        const res2 = await axios.get('http://localhost:8082/api/flights/'+this.state.booking.returnFlightID)
+        const arr2 = res.data.SeatsBooked
+        const arr3 = res2.data.SeatsBooked
+        for(let i = 0; i < this.state.booking.departureFlightSeats.length; i++){
+          arr2.splice(arr2.indexOf(this.state.booking.departureFlightSeats[i]),1)
+        }
+        for(let i = 0; i < this.state.booking.returnFlightSeats.length; i++){
+          arr3.splice(arr3.indexOf(this.state.booking.returnFlightSeats[i]),1)
+        }
+        axios
+        .put('http://localhost:8082/api/Flights/'+this.state.booking.departureFlightID, {SeatsBooked : arr2})
+        .then(res => {
+        })
+        .catch(err => {
+          console.log("Error in UpdateFlightInfo!");
+        })
+
+        axios
+        .put('http://localhost:8082/api/Flights/'+this.state.booking.returnFlightID, {SeatsBooked : arr3})
+        .then(res => {
+        })
+        .catch(err => {
+          console.log("Error in UpdateFlightInfo!");
+        })
         axios
         .delete('http://localhost:8082/api/booking/'+id)
         .then(res => {
@@ -64,12 +75,29 @@ class cancel_reservation
         .catch(err => {
           console.log("Error form ShowbookingDetails_deleteClick");
         })
+
+        var TotalPrice = (res.data.Price * this.state.booking.PassCount) + (res2.data.Price * this.state.booking.PassCount);
+        var emailText = `Your flight reservation from (${res.data.departure_airport}) to (${res.data.arrival_airport}) has been cancelled upon your request.($${TotalPrice}) will be refunded to your bank account`;
+        let mailOptions = {
+          from: 'fflyairlines@gmail.com',
+          to: this.state.user.Email,
+          subject: 'Booking Cancelation',
+          text: emailText,
+          html: `<p> ${emailText}</p>`,
+        };
+        axios.post('http://localhost:8000/sendMail', mailOptions)
+          .then(res => {
+            console.log(res.data);
+          })
+          .catch(err => console.log(err));
+
+
         const arr = this.state.bookings.slice()
         arr.splice(arr.indexOf(id), 1)
           const data = {
             Bookings: arr
           }
-          axios.put('http://localhost:8082/updateUser/' + localStorage.getItem('userID'), data)
+        axios.put('http://localhost:8082/updateUser/' + localStorage.getItem('userID'), data)
   };
 
 

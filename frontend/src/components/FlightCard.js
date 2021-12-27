@@ -17,6 +17,7 @@ const FlightCard = (props) => {
                 <p>Arrival Airport :  {flight.arrival_airport}</p>
                 <p>Airport Terminal : {flight.airport_terminal}</p>
                 <p>Departure Airport : {flight.departure_airport}</p>
+                <p>Cabin : {flight.cabin}</p>
                 <Link to={`/AdminPortal/edit-flight/${flight._id}`}>Update</Link>
             <p>    <Link to={`/AdminPortal/delete-flight/${flight._id}`}>delete</Link> </p>
             </div>

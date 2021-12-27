@@ -20,7 +20,6 @@ class reserved extends Component {
     }; 
   }
   async componentDidMount(){
-    console.log(localStorage.getItem('userID'))
     const res = await axios.post('http://localhost:8082/user', {id: localStorage.getItem('userID')});
     this.setState({user: res.data[0]});
     const arr = [];
@@ -29,14 +28,15 @@ class reserved extends Component {
     for (let i = res.data[0].Bookings.length-1; i >=0 ; i--) {
       let res2 = await axios.get('http://localhost:8082/api/booking/' + res.data[0].Bookings[i])
       if (!res2) {
-        console.log('in if statement')
         continue;
       }
       arr.push(res2.data);
+      if(res.data[0].Bookings.length > 0){
         let res3 = await axios.get('http://localhost:8082/api/flights/' + res2.data.departureFlightID )
         arr2.push(res3.data);
         let res4 = await axios.get('http://localhost:8082/api/flights/' +  res2.data.returnFlightID )
         arr3.push(res4.data);
+      }
     }
     console.log('Bookings: ', arr)
     console.log('Dep: ', arr2)
@@ -57,9 +57,12 @@ class reserved extends Component {
     } else {
         console.log(this.state.departFlights)
         console.log(this.state.returnFlights)
-        reserved_flightList = reserved_flights.map((reserved_flight, k) =>
-        <ReservedCard reserved_flight={reserved_flight} depFlight={this.state.departFlights[k]} retFlight={this.state.returnFlights[k]}/> 
-      );
+        if(this.state.departFlights.length > 0 && this.state.returnFlights.length > 0){
+          reserved_flightList = reserved_flights.map((reserved_flight, k) =>
+        <ReservedCard user={this.state.user} reserved_flight={reserved_flight} depFlight={this.state.departFlights[k]} retFlight={this.state.returnFlights[k]}/> 
+        );  
+      }
+      
     }
     
 
@@ -96,8 +99,7 @@ class reserved extends Component {
           My Bookings
         </a>
       </div>
-      <div className={styles['Main-Body-Container']}>
-        <h1 className={styles['text']}>Your Bookings</h1>
+      <div className={styles['Main-Body-Container']} style={{display: 'flex', flexDirection: 'row', marginTop: 20}}>
         {reserved_flightList}
       </div>
       <div className={styles['Footer']}>

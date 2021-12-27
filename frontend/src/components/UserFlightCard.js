@@ -17,7 +17,7 @@ const UserFlightCard = (props) => {
                 <p>Arrival Airport :  {flight.arrival_airport}</p>
                 <p>Airport Terminal : {flight.airport_terminal}</p>
                 <p>Departure Airport : {flight.departure_airport}</p>
-              
+                <p>Cabin : {flight.cabin}</p>
             <p onClick = {props.onClick}>  Show Details </p>
             </div>
         </div>

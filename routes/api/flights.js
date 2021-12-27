@@ -62,21 +62,32 @@ router.delete('/:id', (req, res) => {
 
 router.post('/search', (req, res) => {
   console.log(req.body)
-  Flight.find(   { $or:[
-    { flight_number: req.body.flight_number},
-    { _id: req.body._id},
-    {departure_time: req.body.departure_time},
-    {arrival_time: req.body.arrival_time},
-    {departure_date: req.body.departure_date},
-    {arrival_date: req.body.arrival_date},
-    {airport_terminal: req.body.airport_terminal},
-    {departure_airport: req.body.departure_airport},
-    {arrival_airport: req.body.arrival_airport},
-    {cabin: req.body.cabin},
-  ]}
-  ).then(result => res.send(result))
-  .catch(err => console.error(err));
+  var terms = {};
+    for(elem in req.body){
+      if(!removeNulls(req.body[elem])){
+        terms[elem] = req.body[elem];
+      }
+    }
+    Flight.find(terms)
+    .then(result => {
+        res.send(result);
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
 });
+
+function removeNulls(string) {
+  if (string == null) {
+    return true;
+  }
+  if (typeof (string) != "string") {
+    return false;
+  };
+
+  const x = string.trim();
+  return x.length === 0;
+}
 
 module.exports = router;

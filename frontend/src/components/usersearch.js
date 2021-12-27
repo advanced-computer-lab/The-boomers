@@ -134,9 +134,9 @@ class usersearch extends Component {
                   <input
                     type='text'
                     placeholder='Cabin Class'
-                    name='BuiavailableChildren'
+                    name='cabin'
                     className='form-control'
-                    value={this.state.BuiavailableChildren}
+                    value={this.state.cabin}
                     onChange={this.onChange}
                   />
                 </div>

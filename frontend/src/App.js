@@ -25,6 +25,10 @@ import cancel_reservation from './components/cancel_reservation';
 import UserProfile from './components/UserProfile';
 import ChangePassword from './components/ChangePassword';
 import showBookings from './components/showBookings';
+import EditDepart from './components/EditDepart';
+import EditDepartResults from './components/EditDepartResults';
+import EditReturn from './components/EditReturn';
+import EditReturnResults from './components/EditReturnResults';
 
 class App extends Component {
   render() {
@@ -50,6 +54,10 @@ class App extends Component {
         <Route path='/UserPortal/confirm' component= {confirm}></Route>
         <Route path='/seats' component= {seats}></Route>
         <Route path='/editseats/:id' component= {editseats}></Route>
+        <Route path='/editdepart/:id' component= {EditDepart}></Route>
+        <Route path='/editreturn/:id' component= {EditReturn}></Route>
+        <Route path='/editdepartresults/:id' component= {EditDepartResults}></Route>
+        <Route path='/editreturnresults/:id' component= {EditReturnResults}></Route>
         <Route path='/UserPortal/reserved' component= {reserved}></Route>
         <Route path='/UserPortal/cancel_reservation/:id' component= {cancel_reservation}></Route>
         <Route path='/UserPortal/UserProfile' component= {UserProfile}></Route>

@@ -2,6 +2,7 @@ const Users = require('../models/User');
 require("dotenv").config({ path: "../config.env"});
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const nodemailer = require('nodemailer');
 
 exports.updateUser = (req, res)=>{
   Users.findByIdAndUpdate(req.params.userID, req.body)
@@ -108,4 +109,31 @@ exports.createUser = async (req, res)=>{
   newUser.save(function(err){
     res.send(newUser);
   });
+}
+
+exports.sendMail = (req, res) => {
+
+  let transporter = nodemailer.createTransport({
+      service: 'gmail',
+
+      auth: {
+          user: 'fflyairlines@gmail.com',
+          pass: 'ShalabySmurf111',
+      },
+  })
+
+
+  // email content in the profile booking screen
+  // using transporter to send the email
+  transporter.sendMail(req.body, function (err, data) {
+      if (err) {
+          console.log('Error Occurs', err);
+          res.send(err);
+      }
+      else {
+          console.log('Email sent');
+          res.send('Email Send');
+      }
+  })
+
 }
