@@ -12,11 +12,11 @@ const ReservedCard = (props) => {
         let mailOptions = {
           from: 'fflyairlines@gmail.com',
           to: user.Email,
-          subject: 'Booking Cancelation',
+          subject: 'Your Booking',
           text: emailText,
           html: `<p> ${emailText}</p>`,
         };
-        axios.post('http://localhost:8000/sendMail', mailOptions)
+        axios.post('http://localhost:8082/sendMail', mailOptions)
           .then(res => {
             console.log(res.data);
           })
