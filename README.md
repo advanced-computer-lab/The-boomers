@@ -26,4 +26,4 @@ and UX As much as we can, but unfortunately one of our team mates has decided to
 (after we have divided the tasks), so the work load suddenly doubled right before the deadline of the
 most important sprint. We also had to do some really important functionalities of sprint 2 that he also
 decided not to do right before the deadline. That’s mainly the reason why our final product is mot
-perfect and had to be rushed . 
+perfect and had to be rushed . # Airlines_booking_system_MERN-stack
